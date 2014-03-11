@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>8F3E2D46-2C9D-4098-B66B-08206B221A94</string>
+	<key>IDESourceControlProjectName</key>
+	<string>TestParseHTML</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>59AD038D-BDD2-4B6C-894B-A93E88F491F2</key>
+		<string>ssh://github.com/hydyy/TestParseHTML.git</string>
+		<key>AB3201AC-75F4-40F6-AEDA-B75D7E722B4A</key>
+		<string>ssh://github.com/zhangchunsheng/ios_project.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>TestParseHTML/TestParseHTML.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>59AD038D-BDD2-4B6C-894B-A93E88F491F2</key>
+		<string>../..</string>
+		<key>8C995162-D96E-48A9-9EED-DACB9F5790DA</key>
+		<string>../../TestParseHTML</string>
+		<key>AB3201AC-75F4-40F6-AEDA-B75D7E722B4A</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/hydyy/TestParseHTML.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AB3201AC-75F4-40F6-AEDA-B75D7E722B4A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AB3201AC-75F4-40F6-AEDA-B75D7E722B4A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios_project</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>59AD038D-BDD2-4B6C-894B-A93E88F491F2</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TestParseHTML</string>
+		</dict>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>8C995162-D96E-48A9-9EED-DACB9F5790DA</string>
+			<key>IDESourceControlWCCName</key>
+			<string>TestParseHTML</string>
+		</dict>
+	</array>
+</dict>
+</plist>
