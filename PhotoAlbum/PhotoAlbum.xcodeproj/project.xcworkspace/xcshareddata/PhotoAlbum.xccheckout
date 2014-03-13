@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>6911BA80-256A-416A-A458-F0981C4A08CD</string>
+	<key>IDESourceControlProjectName</key>
+	<string>PhotoAlbum</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>AB3201AC-75F4-40F6-AEDA-B75D7E722B4A</key>
+		<string>ssh://github.com/zhangchunsheng/ios_project.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>PhotoAlbum/PhotoAlbum.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>AB3201AC-75F4-40F6-AEDA-B75D7E722B4A</key>
+		<string>../../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/zhangchunsheng/ios_project.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>AB3201AC-75F4-40F6-AEDA-B75D7E722B4A</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>AB3201AC-75F4-40F6-AEDA-B75D7E722B4A</string>
+			<key>IDESourceControlWCCName</key>
+			<string>ios_project</string>
+		</dict>
+	</array>
+</dict>
+</plist>
