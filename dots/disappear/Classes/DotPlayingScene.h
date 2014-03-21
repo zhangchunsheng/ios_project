@@ -17,7 +17,6 @@
 
 @interface DotPlayingScnen : CCLayer {
     DotHudController * m_hudController;
-    
     DataHandle       * m_data;
     
     CGFloat m_delta;

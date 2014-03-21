@@ -18,8 +18,7 @@
     CGSize s = [CCDirector sharedDirector].winSize;
     self = [super initWithColor:ccc4(198, 203, 206, 255) width:s.width height:60];
     if (self) {
-        
-        [self setAnchorPoint:ccp(0, 0) ];
+        [self setAnchorPoint:ccp(0, 0)];
         
         CCMenuItemImage * skillOne = [CCMenuItemImage itemWithNormalImage:@"Images/skillbutton.png" selectedImage:@"Images/skillButton_unselect.png" target:self selector:@selector(skillOnePressed)];
         CCMenuItemImage * skillTwo = [CCMenuItemImage itemWithNormalImage:@"Images/skillbutton.png" selectedImage:@"Images/skillButton_unselect.png" target:self selector:@selector(skillTwoPressed)];
@@ -31,10 +30,10 @@
         [skillThree setAnchorPoint:ccp(1, 0)];
         
         [skillOne setPosition:ccp(0, 0)];
-        [skillTwo setPosition:ccp(s.width/2, 0)];
+        [skillTwo setPosition:ccp(s.width / 2, 0)];
         [skillThree setPosition:ccp(s.width, 0)];
         
-        CCMenu * menu = [CCMenu menuWithItems:skillOne,skillTwo,skillThree, nil];
+        CCMenu * menu = [CCMenu menuWithItems:skillOne, skillTwo, skillThree, nil];
         [menu setPosition:ccp(0, 17)];
         [self addChild:menu];
         
@@ -43,8 +42,8 @@
     return self;
 }
 
--(void)startAnimationDisplay{
-    
+-(void)startAnimationDisplay
+{    
     [self setAnchorPoint:ccp(0, 0) ];
     [self setPosition:ccp(0, -60) ];
     
@@ -56,21 +55,24 @@
     [self runAction:[CCSequence actions:moveTo1, moveTo2, nil]];
 }
 
-
--(void) skillOnePressed{
-    
+-(void) skillOnePressed
+{
     if (self.parent) {
         DotHudController * dhc = (DotHudController*)self.parent;
         [dhc playerUseSkill:tooltime];
     }
 }
--(void) skillTwoPressed{
+
+-(void) skillTwoPressed
+{
     if (self.parent) {
         DotHudController * dhc = (DotHudController*)self.parent;
         [dhc playerUseSkill:toolDisappearOne];
     }
 }
--(void) skillThreePressed{
+
+-(void) skillThreePressed
+{
     if (self.parent) {
         DotHudController * dhc = (DotHudController*)self.parent;
         [dhc playerUseSkill:toolDisappearAll];

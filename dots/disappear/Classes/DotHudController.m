@@ -17,17 +17,14 @@
 
 @implementation DotHudController
 
-
 - (id)init
 {
     self = [super init];
     if (self) {
-        
         m_downStateLayer    = [DownStateLayer node];
         m_upstateLayer      = [UpStateLayer node];
         m_pauseLayer        = [PauseLayer node];
         m_topScoreLayer     = [TopScoreLayer node];
-        
         
         [self addChild:m_downStateLayer z:2];
         [self addChild:m_upstateLayer z:2];
@@ -59,7 +56,7 @@
             [playing resumeGame];
             m_pause = false;
         }
-    }else{
+    } else {
         if (self.parent) {
             [m_pauseLayer startAnimationDiaplay];
             DotPlayingScnen * playing = (DotPlayingScnen*)self.parent;
@@ -69,9 +66,8 @@
     }
 }
 
--(void) currentGameOver:(NSInteger)score{
-    
-    
+-(void) currentGameOver:(NSInteger)score
+{
     [m_downStateLayer setVisible:false];;
     [m_upstateLayer setVisible:false];
     [m_pauseLayer setVisible:false];
@@ -79,15 +75,18 @@
 }
 
 
--(void)resetTimeString:(NSString *)string{
+-(void)resetTimeString:(NSString *)string
+{
     [m_upstateLayer resetTimeString:string];
 }
--(void)resetScoreString:(NSString *)string{
+
+-(void)resetScoreString:(NSString *)string
+{
     [m_upstateLayer resetScoreString:string];
 }
 
-
--(void)playerUseSkill:(PLAYERTOOLTYPE)skillTpye{
+-(void)playerUseSkill:(PLAYERTOOLTYPE)skillTpye
+{
     if (self.parent) {
         DotPlayingScnen * playing = (DotPlayingScnen*)self.parent;
         if (playing) {

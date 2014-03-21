@@ -37,8 +37,7 @@
 {
     self = [super init];
     if (self) {
-        
-        CCLayerColor * backGroundLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 255)];
+        CCLayerColor * backGroundLayer = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 255)];
         [backGroundLayer setAnchorPoint:ccp(0, 0)];
         [self addChild:backGroundLayer];
         
@@ -80,7 +79,7 @@
     
     [menu alignItemsVerticallyWithPadding:10];
     
-    [menu setPosition:ccp(size.width / 2, size.height / 3)];
+    //[menu setPosition:ccp(size.width / 2, size.height / 3)];
 
     [self addChild:menu];
 }

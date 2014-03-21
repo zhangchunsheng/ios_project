@@ -29,7 +29,6 @@
         [m_scoreItem setPosition:ccp(0, 0)];
         [m_timeItem setPosition:ccp(s.width, 0)];
         
-        
         CCMenu * menu = [CCMenu menuWithItems:m_scoreItem, m_timeItem, nil];
         
         [menu setPosition:ccp(0, 2)];
@@ -40,13 +39,13 @@
         
         [m_labelScore setAnchorPoint:ccp(0, 0.5)];
         [m_labelScore setColor:ccc3(0, 0, 0)];
-        [m_labelScore setPosition:ccp(m_scoreItem.contentSize.width/2+10,
-                                      m_scoreItem.contentSize.height/2)];
+        [m_labelScore setPosition:ccp(m_scoreItem.contentSize.width / 2 + 10,
+                                      m_scoreItem.contentSize.height / 2)];
         
         [m_labelTime setAnchorPoint:ccp(0, 0.5)];
         [m_labelTime setColor:ccc3(0, 0, 0)];
-        [m_labelTime setPosition:ccp(m_timeItem.contentSize.width/2+10,
-                                     m_timeItem.contentSize.height/2)];
+        [m_labelTime setPosition:ccp(m_timeItem.contentSize.width / 2 + 10,
+                                     m_timeItem.contentSize.height / 2)];
         
         [m_timeItem addChild:m_labelTime z:11];
         [m_scoreItem addChild:m_labelScore z:11];
@@ -56,9 +55,8 @@
     return self;
 }
 
-
--(void)startAnimationDisplay{
-    
+-(void)startAnimationDisplay
+{
     CGSize s = [CCDirector sharedDirector].winSize;
     [self setVisible:true];
     
@@ -76,14 +74,18 @@
     [self runAction:[CCSequence actions:moveTo, moveTo2, call, nil]];
 }
 
--(void)resetScoreString:(NSString *)string{
+-(void)resetScoreString:(NSString *)string
+{
     [m_labelScore setString:string];
 }
--(void) resetTimeString:(NSString *)string{
+
+-(void) resetTimeString:(NSString *)string
+{
     [m_labelTime setString:string];
 }
 
--(void) menuBePressed:(id)sender{
+-(void) menuBePressed:(id)sender
+{
     if (self.parent) {
         DotHudController *hc = (DotHudController*)self.parent;
         [hc gamePause];

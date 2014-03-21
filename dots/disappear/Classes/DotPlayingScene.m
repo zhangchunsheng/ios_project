@@ -31,7 +31,6 @@
 {
     self = [super init];
     if (self) {
-        
         [self setAnchorPoint:ccp(0, 0)];
         
         m_data      = [DataHandle node];
@@ -44,77 +43,77 @@
     return self;
 }
 
-
--(void)onEnterTransitionDidFinish{
+-(void)onEnterTransitionDidFinish
+{
     [super onEnterTransitionDidFinish];
 }
 
 
--(void) startDotGame{
+-(void) startDotGame
+{
     [m_data startAnimtionDisplay];
     [m_data startPlaying];
     [self startTimerCounter];
 }
 
--(void)playingScoreAdd:(NSInteger)score{
-    
+-(void)playingScoreAdd:(NSInteger)score
+{
     m_score += score;
     NSString * scores = [NSString stringWithFormat:@"%d",m_score];
     [m_hudController resetScoreString:scores];
 }
 
-
--(void) startTimerCounter{
+-(void) startTimerCounter
+{
     m_pause = false;
     m_timeCounter = 60;
     [self schedule:@selector(tick:)];
 }
 
--(void) tick:(float) dt{
-    
+-(void) tick:(float) dt
+{
     if (!m_pause) {
         m_delta +=dt;
     }
     
-    if (m_delta>=0.9999) {
+    if (m_delta >= 0.9999) {
         m_delta = 0.0;
-        m_timeCounter -=1;
-        if (m_timeCounter<=0) {
+        m_timeCounter -= 1;
+        if (m_timeCounter<= 0) {
 #warning gameover
-            [m_hudController resetTimeString:[NSString stringWithFormat:@"%d",m_timeCounter]];
+            [m_hudController resetTimeString:[NSString stringWithFormat:@"%d", m_timeCounter]];
             [m_data moveOut];
 //            [m_hudController gamePause];
             [m_hudController currentGameOver:m_score];
             [self unscheduleAllSelectors];
-        }else{
-            [m_hudController resetTimeString:[NSString stringWithFormat:@"%d",m_timeCounter]];
+        } else {
+            [m_hudController resetTimeString:[NSString stringWithFormat:@"%d", m_timeCounter]];
         }
     }
 }
 
-
-
--(void)pauseGame{
+-(void)pauseGame
+{
     m_pause = true;
     [m_data moveOut];
 }
 
--(void) resumeGame{
+-(void) resumeGame
+{
     m_pause = false;
     [m_data moveIn];
 }
 
--(void) playerUsedToolDisappear:(PLAYERTOOLTYPE)type{
-    
+-(void) playerUsedToolDisappear:(PLAYERTOOLTYPE)type
+{
     if (type == tooltime) {
         
-    }else{
+    } else {
         if (type == toolDisappearAll) {
             if([m_data allDrawNodeBeSelected:YES]){
                 
             }
-        }else{
-            
+        } else {
             if([m_data allDrawNodeBeSelected:NO]){
                 
             }

@@ -21,15 +21,10 @@
     NSMutableArray * m_stackArray;
     
     BOOL m_drawLine;
-    
-    BOOL m_objectHasContina;
-    
+    BOOL m_objectHasContain;
     BOOL m_removeAllSameColor;
-    
     BOOL m_toolsDisappear;
-    
     BOOL m_toolsDisappearType;
-    
     BOOL m_canPlaying;
     
     CGPoint m_movePos;
@@ -45,13 +40,13 @@
 
 -(void) touchMove:(CGPoint) local; // touch moved
 
--(void) touchEnd;// touch 结束
+-(void) touchEnd;// touch end
 
--(void) disappearEnd;// 消除结束
+-(void) disappearEnd;// disappear end
 
--(BOOL) allDrawNodeBeSelected:(BOOL) disappearType;//全部选中
+-(BOOL) allDrawNodeBeSelected:(BOOL) disappearType;//select all
 
-//-(void) cancelAllDrawNodeBeSelected;// 取消全部选中的情况
+//-(void) cancelAllDrawNodeBeSelected;// cancel select all
 
 -(void) moveOut;
 -(void) moveIn;

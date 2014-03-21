@@ -15,7 +15,7 @@
 
 @implementation DataHandle
 
-static inline int calcIndex(int x,int y)
+static inline int calcIndex(int x, int y)
 {
     return TOTALX * y + x;
 }
@@ -93,7 +93,7 @@ static inline int calcIndex(int x,int y)
     }
     
     m_movePos = local;
-    m_objectHasContina = NO;
+    m_objectHasContain = NO;
     m_removeAllSameColor = NO;
     
     if (m_stackArray.count !=0) {
@@ -130,9 +130,9 @@ static inline int calcIndex(int x,int y)
             
             DrawSprite * tds = [m_stackArray lastObject];
             [tds unselected];
-            if (m_objectHasContina) {
+            if (m_objectHasContain) {
                 m_removeAllSameColor = NO;
-                m_objectHasContina = NO;
+                m_objectHasContain = NO;
             }
             [m_stackArray removeLastObject];
             [ds selectedType];
@@ -140,14 +140,14 @@ static inline int calcIndex(int x,int y)
             return;
         }
         
-        if (!m_objectHasContina && [m_stackArray containsObject:ds]) {
+        if (!m_objectHasContain && [m_stackArray containsObject:ds]) {
             DrawSprite * tds = [m_stackArray lastObject];
             
             NSInteger absValue = abs(ds.m_x - tds.m_x) + abs(ds.m_y - tds.m_y);
             [ds unselected];
             if (absValue == 1 && [ds selectedType]) {
                 
-                m_objectHasContina = YES;
+                m_objectHasContain = YES;
                 m_removeAllSameColor = YES;
                 
                 [m_stackArray addObject:ds];
@@ -155,11 +155,11 @@ static inline int calcIndex(int x,int y)
             }
         }
         
-        if (m_objectHasContina && [m_stackArray containsObject:ds]) {
+        if (m_objectHasContain && [m_stackArray containsObject:ds]) {
             return;
         }
         
-        m_objectHasContina = NO;
+        m_objectHasContain = NO;
         DrawSprite * tds = [m_stackArray lastObject];
         
         NSInteger absValue = abs(ds.m_x - tds.m_x) + abs(ds.m_y - tds.m_y);
