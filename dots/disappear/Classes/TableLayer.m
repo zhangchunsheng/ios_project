@@ -7,12 +7,9 @@
 //
 
 #import "TableLayer.h"
-
 #import "DataController.h"
 
-
 @implementation TableLayer
-
 
 - (id)init
 {
@@ -35,13 +32,13 @@
     return self;
 }
 
--(void)onEnter{
+-(void)onEnter
+{
     [super onEnter];
 }
 
--(void)loadLoaclLayer:(NSInteger)score{
-    
-    
+-(void)loadLoaclLayer:(NSInteger)score
+{
     [m_localLayer removeAllChildren];
     
     CCLabelTTF * tile = [CCLabelTTF labelWithString:@"you top score" fontName:@"Arial" fontSize:14];
@@ -96,9 +93,8 @@
     }
 }
 
--(void) loadWorldTopList:(NSInteger)score{
-    
-    
+-(void) loadWorldTopList:(NSInteger)score
+{
     [m_worldLayer removeAllChildren];
     
     CCLabelTTF * tile = [CCLabelTTF labelWithString:@"world top score" fontName:@"Arial" fontSize:14];
@@ -148,7 +144,7 @@
             flag = false;
             [scorelabel setColor:ccc3(255, 0, 0)];
             [namelabel setColor:ccc3(255, 0, 0)];
-        }else{
+        } else {
             [scorelabel setColor:ccc3(0, 0, 0)];
             [namelabel setColor:ccc3(0, 0, 0)];
         }
@@ -165,15 +161,16 @@
     }
 }
 
--(void) setNoDataInlist:(CCLayer*) l{
-    
+-(void) setNoDataInlist:(CCLayer*) l
+{
     CCLabelTTF * alert = [CCLabelTTF labelWithString:@"目前没有记录!"fontName:@"Arial" fontSize:18];
     [alert setColor:ccc3(10, 10, 10)];
     [alert setPosition:ccp(80, 75)];
     [l addChild:alert];
 }
 
--(void)leftPageMove:(CGFloat)distance{
+-(void)leftPageMove:(CGFloat)distance
+{
     if (m_pageCurrent<=1) {
         m_pageCurrent = 1;
         return;
@@ -187,8 +184,8 @@
     [self runAction:[CCSequence actionOne:moveto two:moveto2]];
 }
 
--(void)rightPageMove:(CGFloat)distance{
-    
+-(void)rightPageMove:(CGFloat)distance
+{
     if (m_pageCurrent>=m_pageMaxCount) {
         m_pageCurrent = m_pageMaxCount;
         return;

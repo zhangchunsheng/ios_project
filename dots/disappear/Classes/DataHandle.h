@@ -14,7 +14,6 @@
 @class DrawSprite;
 
 @interface DataHandle : CCLayerColor {
-    
     NSMutableArray * m_drawSpriteArray;
     
     ccColor4F m_currentDrawColor;

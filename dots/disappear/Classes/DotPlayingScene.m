@@ -7,15 +7,10 @@
 //
 
 #import "DotPlayingScene.h"
-
 #import "DataHandle.h"
-
 #import "DotHudController.h"
 
-
 @implementation DotPlayingScnen
-
-
 
 +(CCScene *) scene
 {

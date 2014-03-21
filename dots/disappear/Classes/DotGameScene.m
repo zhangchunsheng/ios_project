@@ -11,59 +11,59 @@
 #include "AppDelegate.h"
 
 #import "DotPlayingScene.h"
-
 #import "DataController.h"
-
 #import "TableLayer.h"
-
 #import "TopScoreLayer.h"
 #import "config.h"
-
 #import "NetWorkHandle.h"
-
 #import "MutablePlayerScene.h"
-
 #import "WebRegisterController.h"
 
 #define GameLayerTag 1001
 
-
 @implementation DotGameScene
 
+- (void)achievementViewControllerDidFinish:(GKAchievementViewController *)viewController
+{
+    
+}
+
+- (void)leaderboardViewControllerDidFinish:(GKLeaderboardViewController *)viewController
+{
+    
+}
 
 - (id)init
 {
     self = [super init];
     if (self) {
         
-        CCLayerColor * backGroundLayer = [CCLayerColor layerWithColor:ccc4(100, 100, 100, 255)];
+        CCLayerColor * backGroundLayer = [CCLayerColor layerWithColor:ccc4(0, 0, 0, 255)];
         [backGroundLayer setAnchorPoint:ccp(0, 0)];
         [self addChild:backGroundLayer];
         
 //        [DataController getSharedDataController];
-////        
+//
 //        [[DataController getSharedDataController] savePlayerTemplateData:300];
 //        [[DataController getSharedDataController] savePlayerTemplateData:300];
 //        [[DataController getSharedDataController] savePlayerTemplateData:300];
 //        [[DataController getSharedDataController] savePlayerTemplateData:300];
-////
-//        NSArray * array = [NSArray arrayWithArray:[[DataController getSharedDataController] readLoaclScoreTopList]];
+//
+//        NSArray *array = [NSArray arrayWithArray:[[DataController getSharedDataController] readLoaclScoreTopList]];
 //        
 //        NSLog(@"%@",array);
-//        for (int i=0; i<80; i++) {
-//            NSLog(@"level %d:%ld",i+1,expArray[i]);
+//        for (int i = 0 ; i < 80 ; i++) {
+//            NSLog(@"level %d:%ld", i+1, expArray[i]);
 //        }
     }
     return self;
 }
 
-
--(void)onEnter{
-    
+-(void)onEnter
+{
     [super onEnter];
     
     CGSize size = [CCDirector sharedDirector].winSize;
-    
     
     m_playnow = [CCMenuItemImage itemWithNormalImage:@"Images/play_now.png" selectedImage:@"Images/play_now.png" target:self selector:@selector(playingNow:)];
     
@@ -75,50 +75,51 @@
     
     m_aboutus = [CCMenuItemImage itemWithNormalImage:@"Images/about_us.png" selectedImage:@"Images/about_us.png" target:self selector:@selector(aboutus:)];
     
-    CCMenu *menu = [CCMenu menuWithItems:m_playnow, m_multiplayer,
+    CCMenu *menu = [CCMenu menuWithItems:m_playnow,
                     m_highscore, m_settings, m_aboutus, nil];
     
     [menu alignItemsVerticallyWithPadding:10];
     
-    [menu setPosition:ccp(size.width/2,size.height/3)];
+    [menu setPosition:ccp(size.width / 2, size.height / 3)];
 
     [self addChild:menu];
 }
 
-
--(void) startGame{
-    
+-(void) startGame
+{
     [self removeAllChildren];
     
 }
 
-
--(void) playingNow:(id)sender{
-    
+-(void) playingNow:(id)sender
+{
     CCScene * playingScene = [DotPlayingScnen scene];
     
     [[CCDirector sharedDirector] replaceScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:playingScene]];
 }
 
--(void) multiplePlayer:(id) sender{
+-(void) multiplePlayer:(id) sender
+{
 //    [[NetWorkHandle getSharedNetWork] startMatchOppoent:self];
-    CCScene * playingScene = [MutablePlayerScene node];
+    CCScene * multiplePlayerGameScene = [MutablePlayerScene node];
     
-    [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:playingScene]];
+    [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:multiplePlayerGameScene]];
 }
 
--(void) highScore:(id) sender{
+-(void) highScore:(id) sender
+{
+    CCScene * highScoreScene = [TopScoreLayer scene];
     
-    CCScene * playingScene = [TopScoreLayer scene];
-    
-    [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:playingScene]];
+    [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:highScoreScene]];
 }
 
--(void) settings:(id) sender{
+-(void) settings:(id) sender
+{
     
 }
 
--(void) aboutus:(id) sender{
+-(void) aboutus:(id) sender
+{
     
 }
 

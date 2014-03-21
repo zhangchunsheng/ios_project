@@ -24,15 +24,16 @@ static DataController * _sharedDataController=NULL;
 
 @implementation DataController
 
-
-+(DataController *)getSharedDataController{
++(DataController *)getSharedDataController
+{
     if (_sharedDataController==NULL) {
         _sharedDataController = [[self alloc]init];
     }
     return _sharedDataController;
 }
 
-+(void)releaseSharedDataController{
++(void)releaseSharedDataController
+{
     if (_sharedDataController) {
         [_sharedDataController autorelease];
         _sharedDataController = NULL;
@@ -61,9 +62,8 @@ static DataController * _sharedDataController=NULL;
     return self;
 }
 
-
--(NSArray *)readLoaclScoreTopList{
-    
+-(NSArray *)readLoaclScoreTopList
+{
     [self reloadData];
     
     if (!m_dataDic) {
@@ -78,8 +78,8 @@ static DataController * _sharedDataController=NULL;
     return NULL;
 }
 
--(NSDictionary *)readWorldScpreTopList{
-    
+-(NSDictionary *)readWorldScpreTopList
+{
     [self reloadData];
     
     if (!m_dataDic) {
@@ -94,7 +94,8 @@ static DataController * _sharedDataController=NULL;
     return NULL;
 }
 
--(NSArray*) readPlayerDefaultProperty{
+-(NSArray*) readPlayerDefaultProperty
+{
     [self reloadData];
     
     if (!m_dataDic) {
@@ -112,7 +113,8 @@ static DataController * _sharedDataController=NULL;
     return array;
 }
 
--(NSInteger)getHighScore{
+-(NSInteger)getHighScore
+{
     NSArray * sco = [self readLoaclScoreTopList];
     if (!sco) {
         return 0;
@@ -121,15 +123,16 @@ static DataController * _sharedDataController=NULL;
     return number.integerValue;
 }
 
--(void) savePlayerDefauleProperty:(NSInteger) level :(NSInteger)gold :(long int) exp{
+-(void) savePlayerDefauleProperty:(NSInteger) level :(NSInteger)gold :(long int) exp
+{
     NSArray * array = [array initWithObjects:[NSNumber numberWithInteger:level],
                                                 [NSNumber numberWithInteger:gold],
                                                     [NSNumber numberWithLong:exp], nil];
     [self saveDataIntoFile:[self readLoaclScoreTopList] World:[self readWorldScpreTopList] :array ];
 }
 
--(void)savePlayerTemplateData:(NSInteger)score{
-    
+-(void)savePlayerTemplateData:(NSInteger)score
+{
     NSNumber * number = [NSNumber numberWithInteger:score];
     
     NSArray * scoreArray = [self readLoaclScoreTopList];

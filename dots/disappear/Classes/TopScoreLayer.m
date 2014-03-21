@@ -14,7 +14,8 @@
 
 @implementation TopScoreLayer
 
-+(CCScene *)scene{
++(CCScene *)scene
+{
     CCScene * scene = [CCScene node];
     
     TopScoreLayer * layer = [TopScoreLayer node];
@@ -102,8 +103,8 @@
     return self;
 }
 
--(void)startAnimationDisplay:(NSInteger)score{
-    
+-(void)startAnimationDisplay:(NSInteger)score
+{
     m_imageButtonResponseType = true;//play again
     
     [self setVisible:true];
@@ -130,7 +131,8 @@
 }
 
 
--(void)startAnimationDisplay{
+-(void)startAnimationDisplay
+{
     m_imageButtonResponseType = false;//return back
     [self setVisible:true];
     [self loadAnimation:0 :[[DataController getSharedDataController] readPlayerDefaultProperty]];
@@ -143,8 +145,8 @@
     [self setTouchEnabled:true];
 }
 
--(void) imageItemPressed{
-    
+-(void) imageItemPressed
+{
     if (m_imageButtonResponseType) {
         
         CCScene * playingScene = [DotPlayingScnen scene];
@@ -156,8 +158,8 @@
 }
 
 
--(void) loadAnimation:(NSInteger)score :(NSArray*) array{
-    
+-(void) loadAnimation:(NSInteger)score :(NSArray*) array
+{
     NSInteger level = 1;
     NSInteger gold = 1;
     long int exp = 0;
@@ -188,8 +190,8 @@
     [m_tableLayer loadLoaclLayer:1];
 }
 
--(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
-    
+-(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
     if (!self.visible) {
         return false;
     }
@@ -204,8 +206,8 @@
     return true;
 }
 
--(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
-    
+-(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
     if (!m_canTriggerAction) {
         return;
     }
@@ -217,12 +219,12 @@
     
     CGFloat distance = ccpDistance(local, m_touchStartLocation);
     
-    if (distance>=20) {
+    if (distance >= 20) {
         m_canTriggerAction = false;
         
         if (m_touchStartLocation.x < local.x) {
             [m_tableLayer leftPageMove:200];
-        }else{
+        } else {
             [m_tableLayer rightPageMove:200];
         }
     }
@@ -232,7 +234,8 @@
 //    NSLog(@"toch cancel!");
 //}
 
--(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
 //    NSLog(@"TOUCH END!");
     
     if (m_canTriggerAction) {
@@ -251,14 +254,15 @@
         
         if (m_touchStartLocation.x < local.x) {
             [m_tableLayer leftPageMove:200];
-        }else{
+        } else {
             [m_tableLayer rightPageMove:200];
         }
     }
 
 }
 
--(void)onExit{
+-(void)onExit
+{
     [super onExit];
     [self setTouchEnabled:false];
 }

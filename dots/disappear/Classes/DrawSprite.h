@@ -12,7 +12,6 @@
 #include "config.h"
 
 @interface DrawSprite : CCNode {
-    
     int m_w;
     int m_h;
     

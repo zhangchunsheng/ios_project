@@ -11,7 +11,6 @@
 
 @class TableLayer;
 @interface TopScoreLayer : CCLayerColor {
-    
     CCLabelTTF * m_logoLabel;
     
     CCLabelTTF * m_levelLabel;

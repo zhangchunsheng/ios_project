@@ -14,7 +14,8 @@
 
 static NetWorkHandle* _sharedNewWork = NULL;
 
-+(NetWorkHandle *)getSharedNetWork{
++(NetWorkHandle *)getSharedNetWork
+{
     if (!_sharedNewWork) {
         _sharedNewWork = [[NetWorkHandle alloc] init];
     }
@@ -30,7 +31,8 @@ static NetWorkHandle* _sharedNewWork = NULL;
     return self;
 }
 
--(void)startMatchOppoent:(id)startMatchDelegate{
+-(void)startMatchOppoent:(id)startMatchDelegate
+{
     startMatchDel = startMatchDelegate;
     NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"http://183.230.5.13:8020/Game1/LookingPartners?appid=%@",selfMd5Address]];
     NSLog(@"%@",url);
@@ -40,7 +42,6 @@ static NetWorkHandle* _sharedNewWork = NULL;
     [startMatchRequest setTimeOutSeconds:30.0];
     
     [startMatchRequest setCompletionBlock:^{
-        
         NSError * error;
         
         NSDictionary * dic = [NSJSONSerialization JSONObjectWithData:startMatchRequest.responseData options:NSJSONReadingMutableLeaves error:&error];
@@ -94,12 +95,13 @@ static NetWorkHandle* _sharedNewWork = NULL;
     }];
     [sendPoint startAsynchronous];
 }
+
 -(void) cancellationSendPoint{
     sendPointDel = nil;
 }
 
--(void) sendGameOver:(id) gameOver point:(NSInteger)point{
-    
+-(void) sendGameOver:(id) gameOver point:(NSInteger)point
+{
     sendGameOverDel = gameOver;
     
     NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"NULL",selfMd5Address]];
@@ -132,7 +134,6 @@ static NetWorkHandle* _sharedNewWork = NULL;
 -(void) cancellationGameOver{
     
 }
-
 
 - (void)dealloc
 {

@@ -16,7 +16,6 @@
 @class DotHudController;
 
 @interface DotPlayingScnen : CCLayer {
-    
     DotHudController * m_hudController;
     
     DataHandle       * m_data;
@@ -29,7 +28,7 @@
     BOOL m_pause;
 }
 
-+(CCScene*)scene;
++(CCScene*) scene;
 
 -(void) startDotGame;
 

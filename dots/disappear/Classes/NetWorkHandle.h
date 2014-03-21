@@ -11,8 +11,7 @@
 #import "ASIHTTPRequest.h"
 #import "ASIHTTPRequestDelegate.h"
 
-
-@interface NetWorkHandle : NSObject{
+@interface NetWorkHandle : NSObject {
     NSString * selfMd5Address;
     id startMatchDel;
     id sendPointDel;

@@ -17,14 +17,15 @@
 @synthesize m_color;
 @synthesize m_disappear;
 
--(CGPoint) calcPos:(NSInteger)x y:(NSInteger) y{
-    
-    CGFloat width = [self anchorPoint].x * m_w + x * m_w +addWidth;
-    CGFloat height = [self anchorPoint].y * m_h + y * m_h +AddHeigh;
+-(CGPoint) calcPos:(NSInteger)x y:(NSInteger) y
+{
+    CGFloat width = [self anchorPoint].x * m_w + x * m_w + addWidth;
+    CGFloat height = [self anchorPoint].y * m_h + y * m_h + addHeight;
     return ccp(width, height);
 }
 
--(void) calcColor{
+-(void) calcColor
+{
     int type = arc4random()%TOTAL_TYPE;
     switch (type) {
         case 0:
@@ -49,8 +50,8 @@
     }
 }
 
--(void)spawnAtX:(NSInteger)x Y:(NSInteger)y Width:(CGFloat)w Height:(CGFloat)h{
-    
+-(void)spawnAtX:(NSInteger)x Y:(NSInteger)y Width:(CGFloat)w Height:(CGFloat)h
+{
     m_hasSelected = YES;
     m_disappear = NO;
     m_x = x;
@@ -86,8 +87,8 @@
 //    [m_drawNode clear];
 }
 
--(void)respawn{
-    
+-(void)respawn
+{
     m_disappear = NO;
     [m_drawNode stopAllActions];
     [m_drawNode clear];
@@ -112,7 +113,8 @@
     [self respawnDropdown];
 }
 
--(void) spawnDropdown{
+-(void) spawnDropdown
+{
     m_dropCount = 0;
     
     [self stopAllActions];
@@ -134,7 +136,9 @@
     
     [m_drawNode runAction:seq];
 }
--(void) respawnDropdown{
+
+-(void) respawnDropdown
+{
     m_dropCount = 0;
     
     [self stopAllActions];
@@ -157,15 +161,17 @@
     [m_drawNode runAction:seq];
 }
 
--(void)resetPropertyA:(NSInteger)x Y:(NSInteger)y{
+-(void)resetPropertyA:(NSInteger)x Y:(NSInteger)y
+{
     if (y <m_y) {
         m_dropCount ++;
     }
     m_x = x;
     m_y = y;
 }
--(void)resetDropdown{
-    
+
+-(void)resetDropdown
+{
     m_hasSelected = YES;
     
     CGPoint pos = [self calcPos:m_x y:m_y];
@@ -185,21 +191,21 @@
     m_dropCount = 0;
 }
 
--(BOOL)positionInContent:(CGPoint)pos{
-//    
+-(BOOL)positionInContent:(CGPoint)pos
+{
 //    CGFloat width = DRAWSPRITE_WIDTH;
-//    CGFloat height = DRAWSPRITE_HEIGH;
+//    CGFloat height = DRAWSPRITE_HEIGHT;
     
     CGFloat orgx = m_drawNode.position.x - DRAWSPRITE_WIDTH;
-    CGFloat orgy = m_drawNode.position.y - DRAWSPRITE_HEIGH;
+    CGFloat orgy = m_drawNode.position.y - DRAWSPRITE_HEIGHT;
     
-    CGRect rect = CGRectMake(orgx, orgy, DRAWSPRITE_WIDTH*2, DRAWSPRITE_HEIGH*2);
+    CGRect rect = CGRectMake(orgx, orgy, DRAWSPRITE_WIDTH * 2, DRAWSPRITE_HEIGHT * 2);
     
     return  CGRectContainsPoint(rect, pos);
 }
 
--(BOOL)selectedType{
-    
+-(BOOL)selectedType
+{
     m_hasSelected = YES;
     
     [m_selectNode stopAllActions];
@@ -218,8 +224,8 @@
     return YES;
 }
 
--(void)disappear:(bool)callf{
-    
+-(void)disappear:(bool)callf
+{
     CCScaleBy * scaleBy = [CCScaleBy actionWithDuration:0.1 scale:1.5];
     CCScaleBy * scaleBy2 = [CCScaleBy actionWithDuration:0.2 scale:0];
     CCSequence * seq = NULL;
@@ -243,16 +249,18 @@
     [m_drawNode runAction:seq];
 }
 
--(void) unselected{
+-(void) unselected
+{
     m_hasSelected = NO;
 }
 
--(CGPoint)getDrawNodePosition{
+-(CGPoint)getDrawNodePosition
+{
     return m_drawNode.position;
 }
 
-
--(void)KeepSelected{
+-(void)KeepSelected
+{
     m_hasSelected = YES;
     
     [m_selectNode stopAllActions];
@@ -264,8 +272,8 @@
     [m_selectNode runAction:scaleBy];
 }
 
--(void)unKeepSelected{
-    
+-(void)unKeepSelected
+{
     m_hasSelected = NO;
     [m_selectNode stopAllActions];
     
