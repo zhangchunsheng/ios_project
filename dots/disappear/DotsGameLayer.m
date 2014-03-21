@@ -7,7 +7,7 @@
 //
 
 // Import the interfaces
-#import "GameScene.h"
+#import "DotsGameLayer.h"
 #import "GameLayer.h"
 #import "DotGameScene.h"
 
@@ -15,8 +15,8 @@
 
 //#import "DotGameMainHud.h"
 
-// GameScene implementation
-@implementation GameScene
+// DotsGameLayer implementation
+@implementation DotsGameLayer
 
 // Helper class method that creates a Scene with the GameLayer as the only child.
 +(CCScene *) scene
@@ -25,7 +25,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	GameScene *layer = [GameScene node];
+	DotsGameLayer *layer = [DotsGameLayer node];
     
 	[scene addChild: layer];
 	
