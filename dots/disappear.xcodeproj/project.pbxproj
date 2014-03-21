@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		1F0D03BD18DC14B500CDF67C /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D03BA18DC14B500CDF67C /* NSString+MD5Addition.m */; };
 		1F0D03BE18DC14B500CDF67C /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D03BC18DC14B500CDF67C /* UIDevice+IdentifierAddition.m */; };
+		1F6A057618DC524600A31916 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6A057518DC524600A31916 /* Images.xcassets */; };
 		2D09EF4E175C6846005035C6 /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D09EF4D175C6846005035C6 /* DataController.m */; };
 		2D160F0C1772A64B00253039 /* MatchHudLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D160F0B1772A64B00253039 /* MatchHudLayer.m */; };
 		2D160F101772B02100253039 /* MatchPlayingHudLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D160F0F1772B02100253039 /* MatchPlayingHudLayer.m */; };
@@ -178,6 +179,7 @@
 		1F0D03BA18DC14B500CDF67C /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
 		1F0D03BB18DC14B500CDF67C /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
 		1F0D03BC18DC14B500CDF67C /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		1F6A057518DC524600A31916 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2D09EF4C175C6846005035C6 /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
 		2D09EF4D175C6846005035C6 /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
 		2D160F0A1772A64B00253039 /* MatchHudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchHudLayer.h; sourceTree = "<group>"; };
@@ -650,6 +652,7 @@
 				2D6A312D1755C68600E2883A /* IntroLayer.m */,
 				2D6A2FA01755C68400E2883A /* Resources */,
 				2D6A2FB81755C68400E2883A /* libs */,
+				1F6A057518DC524600A31916 /* Images.xcassets */,
 				2D6A31221755C68600E2883A /* Supporting Files */,
 			);
 			path = disappear;
@@ -1192,6 +1195,7 @@
 				2D6A2FA81755C68400E2883A /* Default-Landscape~ipad.png in Resources */,
 				2D6A2FAA1755C68400E2883A /* Icon-72.png in Resources */,
 				2D6A2FAC1755C68400E2883A /* Icon-Small-50.png in Resources */,
+				1F6A057618DC524600A31916 /* Images.xcassets in Resources */,
 				2D6A2FAE1755C68400E2883A /* Icon-Small.png in Resources */,
 				2D6A2FB01755C68400E2883A /* Icon-Small@2x.png in Resources */,
 				2D6A2FB21755C68400E2883A /* Icon.png in Resources */,
@@ -1398,6 +1402,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1419,6 +1425,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = disappear/Prefix.pch;
