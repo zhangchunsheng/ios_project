@@ -2,8 +2,8 @@
 //  DrawSprite.h
 //  disappear
 //
-//  Created by CpyShine on 13-5-29.
-//  Copyright 2013年 CpyShine. All rights reserved.
+//  Created by ZhangChunsheng on 14-3-21.
+//  Copyright ZhangChunsheng 2014年. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

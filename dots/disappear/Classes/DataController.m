@@ -2,8 +2,8 @@
 //  DataController.m
 //  disappear
 //
-//  Created by CpyShine on 13-6-3.
-//  Copyright (c) 2013年 CpyShine. All rights reserved.
+//  Created by ZhangChunsheng on 14-3-21.
+//  Copyright (c) ZhangChunsheng 2014年. All rights reserved.
 //
 
 #import "DataController.h"

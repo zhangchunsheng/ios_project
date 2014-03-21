@@ -2,8 +2,8 @@
 //  DotGameScene.m
 //  disappear
 //
-//  Created by CpyShine on 13-5-31.
-//  Copyright 2013年 CpyShine. All rights reserved.
+//  Created by ZhangChunsheng on 14-3-21.
+//  Copyright ZhangChunsheng 2014年. All rights reserved.
 //
 
 #import "DotGameScene.h"
