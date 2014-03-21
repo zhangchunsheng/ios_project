@@ -7,7 +7,7 @@
 //
 
 // Import the interfaces
-#import "HelloWorldLayer.h"
+#import "GameLayer.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -19,17 +19,17 @@
 
 #pragma mark - HelloWorldLayer
 
-// HelloWorldLayer implementation
-@implementation HelloWorldLayer
+// GameLayer implementation
+@implementation GameLayer
 
-// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
+// Helper class method that creates a Scene with the GameLayer as the only child.
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	GameLayer *layer = [GameLayer node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -70,15 +70,16 @@
 	return self;
 }
 
--(void)onEnter{
+-(void)onEnter
+{
     [super onEnter];
     
     [self setTouchMode:kCCTouchesOneByOne];
     [self setTouchEnabled:YES];
 }
 
--(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event{
-    
+-(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+{
     CGPoint touchLocation = [touch locationInView: [touch view]];
 	touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
     
@@ -90,8 +91,8 @@
     return NO;
 }
 
--(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event{
-    
+-(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+{
     CGPoint touchLocation = [touch locationInView: [touch view]];
 	touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
     
@@ -102,15 +103,18 @@
     }
 }
 
--(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event{
+-(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+{
     [m_data touchEnd];
 }
 
--(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event{
+-(void) ccTouchCancelled:(UITouch *)touch withEvent:(UIEvent *)event
+{
     [m_data touchEnd];
 }
 
--(void)draw{
+-(void)draw
+{
 }
 
 // on "dealloc" you need to release all your retained objects

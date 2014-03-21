@@ -10,13 +10,13 @@
 #import "cocos2d.h"
 
 @class DataHandle;
-// HelloWorldLayer
-@interface HelloWorldLayer : CCLayer 
+// GameLayer
+@interface GameLayer : CCLayer
 {
     DataHandle *m_data;
 }
 
-// returns a CCScene that contains the HelloWorldLayer as the only child
+// returns a CCScene that contains the GameLayer as the only child
 +(CCScene *) scene;
 
 @end

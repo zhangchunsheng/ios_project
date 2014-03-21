@@ -6,28 +6,26 @@
 //  Copyright ZhangChunsheng 2014年. All rights reserved.
 //
 
-
 // Import the interfaces
-#import "IntroLayer.h"
-#import "HelloWorldLayer.h"
+#import "GameScene.h"
+#import "GameLayer.h"
 #import "DotGameScene.h"
 
 #pragma mark - IntroLayer
 
 //#import "DotGameMainHud.h"
 
-// HelloWorldLayer implementation
-@implementation IntroLayer
+// GameScene implementation
+@implementation GameScene
 
-
-// Helper class method that creates a Scene with the HelloWorldLayer as the only child.
+// Helper class method that creates a Scene with the GameLayer as the only child.
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	IntroLayer *layer = [IntroLayer node];
+	GameScene *layer = [GameScene node];
     
 	[scene addChild: layer];
 	

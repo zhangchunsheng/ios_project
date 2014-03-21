@@ -145,8 +145,8 @@
 		2D6A31201755C68600E2883A /* vec4.c in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A311F1755C68600E2883A /* vec4.c */; };
 		2D6A31251755C68600E2883A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A31241755C68600E2883A /* main.m */; };
 		2D6A31281755C68600E2883A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A31271755C68600E2883A /* AppDelegate.m */; };
-		2D6A312B1755C68600E2883A /* HelloWorldLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A312A1755C68600E2883A /* HelloWorldLayer.m */; };
-		2D6A312E1755C68600E2883A /* IntroLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A312D1755C68600E2883A /* IntroLayer.m */; };
+		2D6A312B1755C68600E2883A /* GameLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A312A1755C68600E2883A /* GameLayer.m */; };
+		2D6A312E1755C68600E2883A /* GameScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D6A312D1755C68600E2883A /* GameScene.m */; };
 		2DA78AF1176082CC00F63F58 /* DownStateLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78AF0176082CC00F63F58 /* DownStateLayer.m */; };
 		2DA78AF41760855F00F63F58 /* UpStateLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78AF31760855E00F63F58 /* UpStateLayer.m */; };
 		2DA78AF9176087A700F63F58 /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78AF8176087A700F63F58 /* PauseLayer.m */; };
@@ -463,10 +463,10 @@
 		2D6A31241755C68600E2883A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		2D6A31261755C68600E2883A /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		2D6A31271755C68600E2883A /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		2D6A31291755C68600E2883A /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		2D6A312A1755C68600E2883A /* HelloWorldLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HelloWorldLayer.m; sourceTree = "<group>"; };
-		2D6A312C1755C68600E2883A /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
-		2D6A312D1755C68600E2883A /* IntroLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = IntroLayer.m; sourceTree = "<group>"; };
+		2D6A31291755C68600E2883A /* GameLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		2D6A312A1755C68600E2883A /* GameLayer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameLayer.m; sourceTree = "<group>"; };
+		2D6A312C1755C68600E2883A /* GameScene.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GameScene.h; sourceTree = "<group>"; };
+		2D6A312D1755C68600E2883A /* GameScene.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GameScene.m; sourceTree = "<group>"; };
 		2DA78AEF176082CC00F63F58 /* DownStateLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DownStateLayer.h; sourceTree = "<group>"; };
 		2DA78AF0176082CC00F63F58 /* DownStateLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DownStateLayer.m; sourceTree = "<group>"; };
 		2DA78AF21760855E00F63F58 /* UpStateLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UpStateLayer.h; sourceTree = "<group>"; };
@@ -646,10 +646,10 @@
 				2DBBE6031755CAF60013BF0F /* Classes */,
 				2D6A31261755C68600E2883A /* AppDelegate.h */,
 				2D6A31271755C68600E2883A /* AppDelegate.m */,
-				2D6A31291755C68600E2883A /* HelloWorldLayer.h */,
-				2D6A312A1755C68600E2883A /* HelloWorldLayer.m */,
-				2D6A312C1755C68600E2883A /* IntroLayer.h */,
-				2D6A312D1755C68600E2883A /* IntroLayer.m */,
+				2D6A31291755C68600E2883A /* GameLayer.h */,
+				2D6A312A1755C68600E2883A /* GameLayer.m */,
+				2D6A312C1755C68600E2883A /* GameScene.h */,
+				2D6A312D1755C68600E2883A /* GameScene.m */,
 				2D6A2FA01755C68400E2883A /* Resources */,
 				2D6A2FB81755C68400E2883A /* libs */,
 				1F6A057518DC524600A31916 /* Images.xcassets */,
@@ -1323,8 +1323,8 @@
 				2D6A31201755C68600E2883A /* vec4.c in Sources */,
 				2D6A31251755C68600E2883A /* main.m in Sources */,
 				2D6A31281755C68600E2883A /* AppDelegate.m in Sources */,
-				2D6A312B1755C68600E2883A /* HelloWorldLayer.m in Sources */,
-				2D6A312E1755C68600E2883A /* IntroLayer.m in Sources */,
+				2D6A312B1755C68600E2883A /* GameLayer.m in Sources */,
+				2D6A312E1755C68600E2883A /* GameScene.m in Sources */,
 				2DBBE6061755CB060013BF0F /* DrawSprite.m in Sources */,
 				2DDC4AAA1755E2F3003FCE41 /* DataHandle.m in Sources */,
 				2D3A14791758817E00B229EF /* DotGameScene.m in Sources */,
