@@ -7,7 +7,7 @@
 //
 
 #import "NetWorkHandle.h"
-#import "DeviveMD5/UIDevice+IdentifierAddition.h"
+#import "DeviceMD5/UIDevice+IdentifierAddition.h"
 #import "MatchHudLayer.h"
 
 @implementation NetWorkHandle

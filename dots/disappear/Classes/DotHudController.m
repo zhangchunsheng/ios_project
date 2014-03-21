@@ -8,7 +8,7 @@
 
 #import "DotHudController.h"
 
-#import "DotPlayingScnen.h"
+#import "DotPlayingScene.h"
 
 #import "DownStateLayer.h"
 #import "UpStateLayer.h"

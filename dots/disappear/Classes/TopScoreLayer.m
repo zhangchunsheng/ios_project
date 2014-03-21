@@ -10,7 +10,7 @@
 
 #import "TableLayer.h"
 #import "DataController.h"
-#import "DotPlayingScnen.h"
+#import "DotPlayingScene.h"
 
 @implementation TopScoreLayer
 

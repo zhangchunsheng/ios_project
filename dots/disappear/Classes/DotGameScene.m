@@ -10,7 +10,7 @@
 
 #include "AppDelegate.h"
 
-#import "DotPlayingScnen.h"
+#import "DotPlayingScene.h"
 
 #import "DataController.h"
 

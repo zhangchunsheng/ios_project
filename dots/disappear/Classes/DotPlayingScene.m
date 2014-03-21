@@ -6,7 +6,7 @@
 //  Copyright 2013年 CpyShine. All rights reserved.
 //
 
-#import "DotPlayingScnen.h"
+#import "DotPlayingScene.h"
 
 #import "DataHandle.h"
 

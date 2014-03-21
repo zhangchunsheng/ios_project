@@ -11,7 +11,7 @@
 #include "SimpleAudioEngine.h"
 
 #import "DrawSprite.h"
-#import "DotPlayingScnen.h"
+#import "DotPlayingScene.h"
 
 @implementation DataHandle
 

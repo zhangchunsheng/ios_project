@@ -7,7 +7,7 @@
 //
 
 #import "WebRegisterController.h"
-#import "DeviveMD5/UIDevice+IdentifierAddition.h"
+#import "DeviceMD5/UIDevice+IdentifierAddition.h"
 
 @interface WebRegisterController ()
 

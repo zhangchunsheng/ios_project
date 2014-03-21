@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1F0D03BD18DC14B500CDF67C /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D03BA18DC14B500CDF67C /* NSString+MD5Addition.m */; };
+		1F0D03BE18DC14B500CDF67C /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D03BC18DC14B500CDF67C /* UIDevice+IdentifierAddition.m */; };
 		2D09EF4E175C6846005035C6 /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D09EF4D175C6846005035C6 /* DataController.m */; };
 		2D160F0C1772A64B00253039 /* MatchHudLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D160F0B1772A64B00253039 /* MatchHudLayer.m */; };
 		2D160F101772B02100253039 /* MatchPlayingHudLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D160F0F1772B02100253039 /* MatchPlayingHudLayer.m */; };
@@ -148,7 +150,7 @@
 		2DA78AF41760855F00F63F58 /* UpStateLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78AF31760855E00F63F58 /* UpStateLayer.m */; };
 		2DA78AF9176087A700F63F58 /* PauseLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DA78AF8176087A700F63F58 /* PauseLayer.m */; };
 		2DB1BE09175DC955000BFEB1 /* Images in Resources */ = {isa = PBXBuildFile; fileRef = 2DB1BE08175DC955000BFEB1 /* Images */; };
-		2DB1BE0D175DCF3E000BFEB1 /* DotPlayingScnen.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB1BE0C175DCF3E000BFEB1 /* DotPlayingScnen.m */; };
+		2DB1BE0D175DCF3E000BFEB1 /* DotPlayingScene.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB1BE0C175DCF3E000BFEB1 /* DotPlayingScene.m */; };
 		2DB1BE0F175DEB6C000BFEB1 /* Sounds in Resources */ = {isa = PBXBuildFile; fileRef = 2DB1BE0E175DEB6C000BFEB1 /* Sounds */; };
 		2DB1BE12175ECE5C000BFEB1 /* DotHudController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DB1BE11175ECE5C000BFEB1 /* DotHudController.m */; };
 		2DBBE6061755CB060013BF0F /* DrawSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DBBE6051755CB060013BF0F /* DrawSprite.m */; };
@@ -156,8 +158,6 @@
 		2DC87B9E1771771F00F21448 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC87B9D1771771F00F21448 /* MobileCoreServices.framework */; };
 		2DC87BA01771773100F21448 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC87B9F1771773100F21448 /* SystemConfiguration.framework */; };
 		2DC87BA4177177D900F21448 /* NetWorkHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87BA3177177D900F21448 /* NetWorkHandle.m */; };
-		2DC87BAA177179EA00F21448 /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87BA7177179EA00F21448 /* NSString+MD5Addition.m */; };
-		2DC87BAB177179EA00F21448 /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87BA9177179EA00F21448 /* UIDevice+IdentifierAddition.m */; };
 		2DC87BC31771875F00F21448 /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87BAE1771875F00F21448 /* ASIAuthenticationDialog.m */; };
 		2DC87BC41771875F00F21448 /* ASIDataCompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87BB11771875F00F21448 /* ASIDataCompressor.m */; };
 		2DC87BC51771875F00F21448 /* ASIDataDecompressor.m in Sources */ = {isa = PBXBuildFile; fileRef = 2DC87BB31771875F00F21448 /* ASIDataDecompressor.m */; };
@@ -174,6 +174,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1F0D03B918DC14B500CDF67C /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
+		1F0D03BA18DC14B500CDF67C /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
+		1F0D03BB18DC14B500CDF67C /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
+		1F0D03BC18DC14B500CDF67C /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		2D09EF4C175C6846005035C6 /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
 		2D09EF4D175C6846005035C6 /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
 		2D160F0A1772A64B00253039 /* MatchHudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchHudLayer.h; sourceTree = "<group>"; };
@@ -468,8 +472,8 @@
 		2DA78AF7176087A700F63F58 /* PauseLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PauseLayer.h; sourceTree = "<group>"; };
 		2DA78AF8176087A700F63F58 /* PauseLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PauseLayer.m; sourceTree = "<group>"; };
 		2DB1BE08175DC955000BFEB1 /* Images */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Images; sourceTree = "<group>"; };
-		2DB1BE0B175DCF3E000BFEB1 /* DotPlayingScnen.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DotPlayingScnen.h; sourceTree = "<group>"; };
-		2DB1BE0C175DCF3E000BFEB1 /* DotPlayingScnen.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DotPlayingScnen.m; sourceTree = "<group>"; };
+		2DB1BE0B175DCF3E000BFEB1 /* DotPlayingScene.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DotPlayingScene.h; sourceTree = "<group>"; };
+		2DB1BE0C175DCF3E000BFEB1 /* DotPlayingScene.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DotPlayingScene.m; sourceTree = "<group>"; };
 		2DB1BE0E175DEB6C000BFEB1 /* Sounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Sounds; sourceTree = "<group>"; };
 		2DB1BE10175ECE5C000BFEB1 /* DotHudController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DotHudController.h; sourceTree = "<group>"; };
 		2DB1BE11175ECE5C000BFEB1 /* DotHudController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DotHudController.m; sourceTree = "<group>"; };
@@ -481,10 +485,6 @@
 		2DC87B9F1771773100F21448 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		2DC87BA2177177D900F21448 /* NetWorkHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetWorkHandle.h; sourceTree = "<group>"; };
 		2DC87BA3177177D900F21448 /* NetWorkHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetWorkHandle.m; sourceTree = "<group>"; };
-		2DC87BA6177179EA00F21448 /* NSString+MD5Addition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+MD5Addition.h"; sourceTree = "<group>"; };
-		2DC87BA7177179EA00F21448 /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
-		2DC87BA8177179EA00F21448 /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
-		2DC87BA9177179EA00F21448 /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		2DC87BAD1771875F00F21448 /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		2DC87BAE1771875F00F21448 /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		2DC87BAF1771875F00F21448 /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -540,6 +540,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		1F0D03B818DC14B500CDF67C /* DeviceMD5 */ = {
+			isa = PBXGroup;
+			children = (
+				1F0D03B918DC14B500CDF67C /* NSString+MD5Addition.h */,
+				1F0D03BA18DC14B500CDF67C /* NSString+MD5Addition.m */,
+				1F0D03BB18DC14B500CDF67C /* UIDevice+IdentifierAddition.h */,
+				1F0D03BC18DC14B500CDF67C /* UIDevice+IdentifierAddition.m */,
+			);
+			path = DeviceMD5;
+			sourceTree = "<group>";
+		};
 		2D09EF4B175C67EB005035C6 /* data */ = {
 			isa = PBXGroup;
 			children = (
@@ -1036,7 +1047,7 @@
 		2DBBE6031755CAF60013BF0F /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2DC87BA5177179EA00F21448 /* DeviveMD5 */,
+				1F0D03B818DC14B500CDF67C /* DeviceMD5 */,
 				2D160F141772D6E800253039 /* Register */,
 				2DC87BAC1771875F00F21448 /* ASINetwork */,
 				2DC87BA11771779E00F21448 /* NetWorkHandle */,
@@ -1044,7 +1055,7 @@
 				2DB1BE08175DC955000BFEB1 /* Images */,
 				2D09EF4B175C67EB005035C6 /* data */,
 				2DE9C3C31759DB3A00F1410F /* Core */,
-				2DE9C3C21759DB2A00F1410F /* Scnen */,
+				2DE9C3C21759DB2A00F1410F /* Scene */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -1056,17 +1067,6 @@
 				2DC87BA3177177D900F21448 /* NetWorkHandle.m */,
 			);
 			name = NetWorkHandle;
-			sourceTree = "<group>";
-		};
-		2DC87BA5177179EA00F21448 /* DeviveMD5 */ = {
-			isa = PBXGroup;
-			children = (
-				2DC87BA6177179EA00F21448 /* NSString+MD5Addition.h */,
-				2DC87BA7177179EA00F21448 /* NSString+MD5Addition.m */,
-				2DC87BA8177179EA00F21448 /* UIDevice+IdentifierAddition.h */,
-				2DC87BA9177179EA00F21448 /* UIDevice+IdentifierAddition.m */,
-			);
-			path = DeviveMD5;
 			sourceTree = "<group>";
 		};
 		2DC87BAC1771875F00F21448 /* ASINetwork */ = {
@@ -1109,7 +1109,7 @@
 			name = MutableLayer;
 			sourceTree = "<group>";
 		};
-		2DE9C3C21759DB2A00F1410F /* Scnen */ = {
+		2DE9C3C21759DB2A00F1410F /* Scene */ = {
 			isa = PBXGroup;
 			children = (
 				2DC87BCF17719CAB00F21448 /* MutableLayer */,
@@ -1117,10 +1117,10 @@
 				2D46608217617F0800A69024 /* HighScore */,
 				2D3A14771758817E00B229EF /* DotGameScene.h */,
 				2D3A14781758817E00B229EF /* DotGameScene.m */,
-				2DB1BE0B175DCF3E000BFEB1 /* DotPlayingScnen.h */,
-				2DB1BE0C175DCF3E000BFEB1 /* DotPlayingScnen.m */,
+				2DB1BE0B175DCF3E000BFEB1 /* DotPlayingScene.h */,
+				2DB1BE0C175DCF3E000BFEB1 /* DotPlayingScene.m */,
 			);
-			name = Scnen;
+			name = Scene;
 			sourceTree = "<group>";
 		};
 		2DE9C3C31759DB3A00F1410F /* Core */ = {
@@ -1220,6 +1220,7 @@
 				2D6A2FD11755C68400E2883A /* CCActionInterval.m in Sources */,
 				2D6A2FD41755C68400E2883A /* CCActionManager.m in Sources */,
 				2D6A2FD71755C68400E2883A /* CCActionPageTurn3D.m in Sources */,
+				1F0D03BD18DC14B500CDF67C /* NSString+MD5Addition.m in Sources */,
 				2D6A2FDA1755C68400E2883A /* CCActionProgressTimer.m in Sources */,
 				2D6A2FDD1755C68400E2883A /* CCActionTiledGrid.m in Sources */,
 				2D6A2FE01755C68400E2883A /* CCActionTween.m in Sources */,
@@ -1277,6 +1278,7 @@
 				2D6A308E1755C68500E2883A /* CCTransitionPageTurn.m in Sources */,
 				2D6A30911755C68500E2883A /* CCTransitionProgress.m in Sources */,
 				2D6A30951755C68600E2883A /* cocos2d.m in Sources */,
+				1F0D03BE18DC14B500CDF67C /* UIDevice+IdentifierAddition.m in Sources */,
 				2D6A309C1755C68600E2883A /* CCDirectorIOS.m in Sources */,
 				2D6A309F1755C68600E2883A /* CCES2Renderer.m in Sources */,
 				2D6A30A31755C68600E2883A /* CCGLView.m in Sources */,
@@ -1323,7 +1325,7 @@
 				2DDC4AAA1755E2F3003FCE41 /* DataHandle.m in Sources */,
 				2D3A14791758817E00B229EF /* DotGameScene.m in Sources */,
 				2D09EF4E175C6846005035C6 /* DataController.m in Sources */,
-				2DB1BE0D175DCF3E000BFEB1 /* DotPlayingScnen.m in Sources */,
+				2DB1BE0D175DCF3E000BFEB1 /* DotPlayingScene.m in Sources */,
 				2DB1BE12175ECE5C000BFEB1 /* DotHudController.m in Sources */,
 				2DA78AF1176082CC00F63F58 /* DownStateLayer.m in Sources */,
 				2DA78AF41760855F00F63F58 /* UpStateLayer.m in Sources */,
@@ -1331,8 +1333,6 @@
 				2D4660851761CF8500A69024 /* TopScoreLayer.m in Sources */,
 				2D46608B1761DF9700A69024 /* TableLayer.m in Sources */,
 				2DC87BA4177177D900F21448 /* NetWorkHandle.m in Sources */,
-				2DC87BAA177179EA00F21448 /* NSString+MD5Addition.m in Sources */,
-				2DC87BAB177179EA00F21448 /* UIDevice+IdentifierAddition.m in Sources */,
 				2DC87BC31771875F00F21448 /* ASIAuthenticationDialog.m in Sources */,
 				2DC87BC41771875F00F21448 /* ASIDataCompressor.m in Sources */,
 				2DC87BC51771875F00F21448 /* ASIDataDecompressor.m in Sources */,
