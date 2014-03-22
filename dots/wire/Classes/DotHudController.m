@@ -34,32 +34,35 @@
     return self;
 }
 
--(void)onEnter{
+-(void)onEnter
+{
     [super onEnter];
     
     [m_upstateLayer startAnimationDisplay];
     [m_downStateLayer startAnimationDisplay];
 }
 
--(void)startGame{
+-(void)startGame
+{
     if (self.parent) {
-        DotPlayingScnen * dps = (DotPlayingScnen*)self.parent;
+        DotPlayingScene *dps = (DotPlayingScene*)self.parent;
         [dps startDotGame];
     }
 }
 
--(void)gamePause{
+-(void)gamePause
+{
     if (m_pause) {
         if (self.parent) {
             [m_pauseLayer setVisible:false];
-            DotPlayingScnen * playing = (DotPlayingScnen*)self.parent;
+            DotPlayingScene *playing = (DotPlayingScene*)self.parent;
             [playing resumeGame];
             m_pause = false;
         }
     } else {
         if (self.parent) {
             [m_pauseLayer startAnimationDiaplay];
-            DotPlayingScnen * playing = (DotPlayingScnen*)self.parent;
+            DotPlayingScene *playing = (DotPlayingScene*)self.parent;
             [playing pauseGame];
             m_pause = true;
         }
@@ -88,9 +91,9 @@
 -(void)playerUseSkill:(PLAYERTOOLTYPE)skillTpye
 {
     if (self.parent) {
-        DotPlayingScnen * playing = (DotPlayingScnen*)self.parent;
+        DotPlayingScene * playing = (DotPlayingScene*)self.parent;
         if (playing) {
-            [playing playerUsedToolDisappear:skillTpye];
+            [playing playerUsedToolDispel:skillTpye];
         }
     }
 }

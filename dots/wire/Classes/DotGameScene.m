@@ -80,6 +80,7 @@
     [menu alignItemsVerticallyWithPadding:10];
     
     //[menu setPosition:ccp(size.width / 2, size.height / 3)];
+    NSLog(@"size.width %f", size.width);
 
     [self addChild:menu];
 }
@@ -92,7 +93,7 @@
 
 -(void) playingNow:(id)sender
 {
-    CCScene * playingScene = [DotPlayingScnen scene];
+    CCScene * playingScene = [DotPlayingScene scene];
     
     [[CCDirector sharedDirector] replaceScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:playingScene]];
 }
@@ -124,7 +125,7 @@
 
 -(void)onEnterTransitionDidFinish{
     [super onEnterTransitionDidFinish];
-    NSLog(@"trans");
+    NSLog(@"transitionDifFinish");
 }
 
 @end

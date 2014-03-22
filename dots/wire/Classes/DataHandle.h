@@ -23,8 +23,8 @@
     BOOL m_drawLine;
     BOOL m_objectHasContain;
     BOOL m_removeAllSameColor;
-    BOOL m_toolsDisappear;
-    BOOL m_toolsDisappearType;
+    BOOL m_toolsDispel;
+    BOOL m_toolsDispelType;
     BOOL m_canPlaying;
     
     CGPoint m_movePos;
@@ -42,9 +42,9 @@
 
 -(void) touchEnd;// touch end
 
--(void) disappearEnd;// disappear end
+-(void) dispelEnd;// dispel end
 
--(BOOL) allDrawNodeBeSelected:(BOOL) disappearType;//select all
+-(BOOL) allDrawNodeBeSelected:(BOOL) dispelType;//select all
 
 //-(void) cancelAllDrawNodeBeSelected;// cancel select all
 

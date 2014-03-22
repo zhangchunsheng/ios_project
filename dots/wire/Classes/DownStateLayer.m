@@ -67,7 +67,7 @@
 {
     if (self.parent) {
         DotHudController * dhc = (DotHudController*)self.parent;
-        [dhc playerUseSkill:toolDisappearOne];
+        [dhc playerUseSkill:toolDispelOne];
     }
 }
 
@@ -75,7 +75,7 @@
 {
     if (self.parent) {
         DotHudController * dhc = (DotHudController*)self.parent;
-        [dhc playerUseSkill:toolDisappearAll];
+        [dhc playerUseSkill:toolDispelAll];
     }
 }
 

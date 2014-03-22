@@ -1,5 +1,5 @@
 //
-//  DotPlayingScnen.h
+//  DotPlayingScene.h
 //  wire
 //
 //  Created by ZhangChunsheng on 14-3-21.
@@ -15,7 +15,7 @@
 
 @class DotHudController;
 
-@interface DotPlayingScnen : CCLayer {
+@interface DotPlayingScene : CCLayer {
     DotHudController * m_hudController;
     DataHandle       * m_data;
     
@@ -33,7 +33,7 @@
 
 -(void) playingScoreAdd:(NSInteger) score;
 
--(void) playerUsedToolDisappear:(PLAYERTOOLTYPE) type;
+-(void) playerUsedToolDispel:(PLAYERTOOLTYPE) type;
 
 -(void) pauseGame;
 -(void) resumeGame;

@@ -89,12 +89,12 @@
 }
 
 
--(void)playerUsedToolDisappear:(PLAYERTOOLTYPE)type{
+-(void)playerUsedToolDispel:(PLAYERTOOLTYPE)type{
     
     if (type == tooltime) {
         
     }else{
-        if (type == toolDisappearAll) {
+        if (type == toolDispelAll) {
             if([m_core allDrawNodeBeSelected:YES]){
                 
             }

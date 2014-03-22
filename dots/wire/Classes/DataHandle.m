@@ -86,8 +86,8 @@ static inline int calcIndex(int x, int y)
 
 -(BOOL) touchBegine:(CGPoint)local
 {
-    if (m_toolsDisappear) {
-        [self toolDisappearSelected:local];
+    if (m_toolsDispel) {
+        [self toolDispelSelected:local];
         
         return false;
     }
@@ -175,20 +175,20 @@ static inline int calcIndex(int x, int y)
 {
     m_drawLine = NO;
     
-    NSInteger disappearCount = 0;
+    NSInteger dispelCount = 0;
     
     if (m_stackArray.count >= 2) {
         if (m_removeAllSameColor) {
-            [self disappearAllSameColorDotsWithSelected];
+            [self dispelAllSameColorDotsWithSelected];
         } else {
             for (int i = 0 ; i < m_stackArray.count ; i++) {
                 DrawSprite * node = [m_stackArray objectAtIndex:i];
                 if (node) {
                     if (i == m_stackArray.count-1) {
-                        [node disappear:YES];
+                        [node dispel:YES];
                     }
-                    [node disappear:NO];
-                    disappearCount ++;
+                    [node dispel:NO];
+                    dispelCount ++;
                 }
             }
         }
@@ -200,16 +200,16 @@ static inline int calcIndex(int x, int y)
     [m_stackArray removeAllObjects];
     
     if (self.parent) {
-        [self.parent playingScoreAdd:disappearCount];
-//        DotPlayingScnen * playing = (DotPlayingScnen*)self.parent;
+        [self.parent playingScoreAdd:dispelCount];
+//        DotPlayingScene * playing = (DotPlayingScene*)self.parent;
 //        
 //        if (playing) {
-//            [playing playingScoreAdd:disappearCount];
+//            [playing playingScoreAdd:dispelCount];
 //        }
     }
 }
 
--(NSInteger) disappearAllSameColorDotsWithSelected
+-(NSInteger) dispelAllSameColorDotsWithSelected
 {
     NSInteger count = 0;
     BOOL dis = YES;
@@ -217,10 +217,10 @@ static inline int calcIndex(int x, int y)
         DrawSprite * node = [m_drawSpriteArray objectAtIndex:i];
         if (node && ccc4FEqual(m_currentDrawColor, node.m_color)) {
             if (dis) {
-                [node disappear:YES];
+                [node dispel:YES];
                 dis = NO;
             }
-            [node disappear:NO];
+            [node dispel:NO];
             count ++;
         }
     }
@@ -253,7 +253,7 @@ static inline int calcIndex(int x, int y)
     }
 }
 
--(void)disappearEnd
+-(void)dispelEnd
 {
     NSMutableArray * dropArray = [NSMutableArray array];
     
@@ -273,7 +273,7 @@ static inline int calcIndex(int x, int y)
     for (int i = 0; i< m_drawSpriteArray.count; i++) {
         DrawSprite * ds = (DrawSprite*)[m_drawSpriteArray objectAtIndex:i];
         
-        if (ds.m_disappear) {
+        if (ds.m_dispel) {
             [ds respawn];
         }
     }
@@ -297,7 +297,7 @@ static inline int calcIndex(int x, int y)
         }
         
         DrawSprite * nDS = (DrawSprite *)[m_drawSpriteArray objectAtIndex:nIndex];
-        if (nDS && nDS.m_disappear) {
+        if (nDS && nDS.m_dispel) {
             NSInteger nX = nDS.m_x;
             NSInteger nY = nDS.m_y;
             
@@ -306,17 +306,17 @@ static inline int calcIndex(int x, int y)
             
             [m_drawSpriteArray exchangeObjectAtIndex:index withObjectAtIndex:nIndex];
             
-            if (![resultArray containsObject:drawSprite] && !drawSprite.m_disappear) {
+            if (![resultArray containsObject:drawSprite] && !drawSprite.m_dispel) {
                 [resultArray addObject:drawSprite];
             }
         }
-        if(nDS && !nDS.m_disappear){
+        if(nDS && !nDS.m_dispel){
             break;
         }
     }
 }
 
--(void) toolDisappearSelected:(CGPoint) local
+-(void) toolDispelSelected:(CGPoint) local
 {
     DrawSprite * ds = [self getCurrentSelectSprite:local];
     
@@ -325,17 +325,17 @@ static inline int calcIndex(int x, int y)
     if (ds) {
         [self cancelAllDrawNodeBeSelected];
         
-        if (m_toolsDisappearType) {
+        if (m_toolsDispelType) {
             m_currentDrawColor = ds.m_color;
-            count = [self disappearAllSameColorDotsWithSelected];
+            count = [self dispelAllSameColorDotsWithSelected];
         } else {
-            [ds disappear:YES];
+            [ds dispel:YES];
             count = 1;
         }
-        m_toolsDisappear = NO;
+        m_toolsDispel = NO;
         
         if (self.parent) {
-            DotPlayingScnen * playing = (DotPlayingScnen*)self.parent;
+            DotPlayingScene * playing = (DotPlayingScene*)self.parent;
             
             if (playing) {
                 [playing playingScoreAdd:count];
@@ -345,14 +345,14 @@ static inline int calcIndex(int x, int y)
     
 }
 
--(BOOL)allDrawNodeBeSelected:(BOOL)disappearType
+-(BOOL)allDrawNodeBeSelected:(BOOL)dispelType
 {
-    if (m_toolsDisappear) {
+    if (m_toolsDispel) {
         return NO;
     }
     
-    m_toolsDisappearType = disappearType;
-    m_toolsDisappear = YES;
+    m_toolsDispelType = dispelType;
+    m_toolsDispel = YES;
     
     for (int i = 0 ; i < m_drawSpriteArray.count ; i++) {
         DrawSprite *ds = (DrawSprite *)[m_drawSpriteArray objectAtIndex:i];
@@ -392,7 +392,7 @@ static inline int calcIndex(int x, int y)
 
 -(void)startPlaying
 {
-    m_toolsDisappear = false;
+    m_toolsDispel = false;
     m_canPlaying = YES;
     
     [self setTouchMode:kCCTouchesOneByOne];

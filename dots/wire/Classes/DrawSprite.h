@@ -27,7 +27,7 @@
 @property(nonatomic,readonly) NSInteger m_x;
 @property(nonatomic,readonly) NSInteger m_y;
 @property(nonatomic,readonly) ccColor4F m_color;
-@property(nonatomic,readonly) BOOL m_disappear;//是否消失
+@property(nonatomic,readonly) BOOL m_dispel;//是否消除
 
 //生成 该节点 x y 宽和高
 -(void) spawnAtX:(NSInteger)x Y:(NSInteger)y Width:(CGFloat)w Height:(CGFloat) h;
@@ -44,7 +44,7 @@
 
 -(BOOL) selectedType;// 被选中调用该方法
 
--(void) disappear:(bool) callf;// 消失
+-(void) dispel:(bool) callf;// 消除
 
 -(void) unselected;// 取消选中状态
 

@@ -63,7 +63,7 @@
     if (self.parent) {
         MutablePlayerScene * sc = (MutablePlayerScene*)self.parent;
         if (sc) {
-            [sc playerUsedToolDisappear:skillTpye];
+            [sc playerUsedToolDispel:skillTpye];
         }
     }
 }

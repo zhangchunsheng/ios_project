@@ -15,7 +15,7 @@
 @synthesize m_x;
 @synthesize m_y;
 @synthesize m_color;
-@synthesize m_disappear;
+@synthesize m_dispel;
 
 -(CGPoint) calcPos:(NSInteger)x y:(NSInteger) y
 {
@@ -53,7 +53,7 @@
 -(void)spawnAtX:(NSInteger)x Y:(NSInteger)y Width:(CGFloat)w Height:(CGFloat)h
 {
     m_hasSelected = YES;
-    m_disappear = NO;
+    m_dispel = NO;
     m_x = x;
     m_y = y;
     
@@ -89,7 +89,7 @@
 
 -(void)respawn
 {
-    m_disappear = NO;
+    m_dispel = NO;
     [m_drawNode stopAllActions];
     [m_drawNode clear];
     [m_drawNode setScale:1.0];
@@ -224,7 +224,7 @@
     return YES;
 }
 
--(void)disappear:(bool)callf
+-(void)dispel:(bool)callf
 {
     CCScaleBy * scaleBy = [CCScaleBy actionWithDuration:0.1 scale:1.5];
     CCScaleBy * scaleBy2 = [CCScaleBy actionWithDuration:0.2 scale:0];
@@ -235,7 +235,7 @@
             
             if (self.parent) {
                 DataHandle * data = (DataHandle*)self.parent;
-                [data disappearEnd];
+                [data dispelEnd];
             }
             
         } object:self];
@@ -244,7 +244,7 @@
         seq = [CCSequence actions:scaleBy,scaleBy2, nil];
     }
     
-    m_disappear = YES;
+    m_dispel = YES;
     
     [m_drawNode runAction:seq];
 }

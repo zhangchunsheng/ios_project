@@ -149,7 +149,7 @@
 {
     if (m_imageButtonResponseType) {
         
-        CCScene * playingScene = [DotPlayingScnen scene];
+        CCScene * playingScene = [DotPlayingScene scene];
         
         [[CCDirector sharedDirector] replaceScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:playingScene]];
     }else{

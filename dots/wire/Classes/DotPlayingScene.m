@@ -1,5 +1,5 @@
 //
-//  DotPlayingScnen.m
+//  DotPlayingScene.m
 //  wire
 //
 //  Created by ZhangChunsheng on 14-3-21.
@@ -10,7 +10,7 @@
 #import "DataHandle.h"
 #import "DotHudController.h"
 
-@implementation DotPlayingScnen
+@implementation DotPlayingScene
 
 +(CCScene *) scene
 {
@@ -18,7 +18,7 @@
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	DotPlayingScnen *layer = [DotPlayingScnen node];
+	DotPlayingScene *layer = [DotPlayingScene node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -104,12 +104,12 @@
     [m_data moveIn];
 }
 
--(void) playerUsedToolDisappear:(PLAYERTOOLTYPE)type
+-(void) playerUsedToolDispel:(PLAYERTOOLTYPE)type
 {
     if (type == tooltime) {
         
     } else {
-        if (type == toolDisappearAll) {
+        if (type == toolDispelAll) {
             if([m_data allDrawNodeBeSelected:YES]){
                 
             }

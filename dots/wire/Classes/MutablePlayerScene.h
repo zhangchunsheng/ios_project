@@ -37,6 +37,6 @@
 -(void) playingScoreAdd:(NSInteger) score;
 
 -(void) startGame:(NSString*)oppname Point:(NSString*)point;
--(void) playerUsedToolDisappear:(PLAYERTOOLTYPE) type;
+-(void) playerUsedToolDispel:(PLAYERTOOLTYPE) type;
 
 @end
