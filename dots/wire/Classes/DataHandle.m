@@ -20,9 +20,9 @@ static inline int calcIndex(int x, int y)
     return TOTALX * y + x;
 }
 
-- (id)init
+- (id) init
 {
-    self = [super initWithColor:ccc4(255, 255, 255, 255)];//WithColor:ccc4(230, 230, 230, 255)
+    self = [super initWithColor:ccc4(255, 255, 255, 255)];//initWithColor:ccc4(230, 230, 230, 255)
     if (self) {
         m_drawSpriteArray = [[NSMutableArray alloc]init];
         
@@ -68,7 +68,7 @@ static inline int calcIndex(int x, int y)
 //    
 //}
 
--(DrawSprite *)getCurrentSelectSprite:(CGPoint)pos
+-(DrawSprite *) getCurrentSelectSprite:(CGPoint) pos
 {
     if (m_drawSpriteArray) {
         for (DrawSprite * node in m_drawSpriteArray) {
@@ -93,8 +93,8 @@ static inline int calcIndex(int x, int y)
     m_objectHasContain = NO;
     m_removeAllSameColor = NO;
     
-    if (m_stackArray.count !=0) {
-        for (DrawSprite * node in m_stackArray) {
+    if (m_stackArray.count != 0) {
+        for (DrawSprite *node in m_stackArray) {
             [node unselected];
         }
         [m_stackArray removeAllObjects];
@@ -115,7 +115,6 @@ static inline int calcIndex(int x, int y)
 -(void) touchMove:(CGPoint)local
 {
     m_movePos = local;
-    
     DrawSprite * ds = [self getCurrentSelectSprite:local];
     
     if (ds && ccc4FEqual(m_currentDrawColor, ds.m_color)) {
@@ -123,7 +122,7 @@ static inline int calcIndex(int x, int y)
             return;
         }
         if (m_stackArray.count >=2 &&
-            ds == [m_stackArray objectAtIndex:(m_stackArray.count-2)]) {//退一格
+            ds == [m_stackArray objectAtIndex:(m_stackArray.count - 2)]) {//退一格
             
             DrawSprite * tds = [m_stackArray lastObject];
             [tds unselected];
@@ -138,12 +137,11 @@ static inline int calcIndex(int x, int y)
         }
         
         if (!m_objectHasContain && [m_stackArray containsObject:ds]) {
-            DrawSprite * tds = [m_stackArray lastObject];
+            DrawSprite *tds = [m_stackArray lastObject];
             
             NSInteger absValue = abs(ds.m_x - tds.m_x) + abs(ds.m_y - tds.m_y);
             [ds unselected];
             if (absValue == 1 && [ds selectedType]) {
-                
                 m_objectHasContain = YES;
                 m_removeAllSameColor = YES;
                 
@@ -168,7 +166,7 @@ static inline int calcIndex(int x, int y)
     }
 }
 
--(void)touchEnd
+-(void) touchEnd
 {
     m_drawLine = NO;
     
@@ -179,13 +177,13 @@ static inline int calcIndex(int x, int y)
             [self dispelAllSameColorDotsWithSelected];
         } else {
             for (int i = 0 ; i < m_stackArray.count ; i++) {
-                DrawSprite * node = [m_stackArray objectAtIndex:i];
+                DrawSprite *node = [m_stackArray objectAtIndex:i];
                 if (node) {
-                    if (i == m_stackArray.count-1) {
+                    if (i == m_stackArray.count - 1) {
                         [node dispel:YES];
                     }
                     [node dispel:NO];
-                    dispelCount ++;
+                    dispelCount++;
                 }
             }
         }
@@ -198,7 +196,7 @@ static inline int calcIndex(int x, int y)
     
     if (self.parent) {
         [self.parent playingScoreAdd:dispelCount];
-//        DotPlayingScene * playing = (DotPlayingScene*)self.parent;
+//        DotPlayingScene *playing = (DotPlayingScene*)self.parent;
 //        
 //        if (playing) {
 //            [playing playingScoreAdd:dispelCount];
@@ -224,7 +222,7 @@ static inline int calcIndex(int x, int y)
     return count;
 }
 
--(void)draw
+-(void) draw
 {
     [super draw];
     
@@ -250,7 +248,7 @@ static inline int calcIndex(int x, int y)
     }
 }
 
--(void)dispelEnd
+-(void) dispelEnd
 {
     NSMutableArray * dropArray = [NSMutableArray array];
     
@@ -266,7 +264,7 @@ static inline int calcIndex(int x, int y)
         [ds resetDropdown];
     }
     
-    for (int i = 0; i< m_drawSpriteArray.count; i++) {
+    for (int i = 0; i < m_drawSpriteArray.count; i++) {
         DrawSprite * ds = (DrawSprite*)[m_drawSpriteArray objectAtIndex:i];
         
         if (ds.m_dispel) {
@@ -285,14 +283,14 @@ static inline int calcIndex(int x, int y)
         NSInteger x = drawSprite.m_x;
         NSInteger y = drawSprite.m_y;
         
-        NSInteger index = y*TOTALY + x;
-        NSInteger nIndex = (y-1) * TOTALY +x;
+        NSInteger index = y * TOTALY + x;
+        NSInteger nIndex = (y - 1) * TOTALY + x;
         
-        if (nIndex<0) {
+        if (nIndex < 0) {
             break;
         }
         
-        DrawSprite * nDS = (DrawSprite *)[m_drawSpriteArray objectAtIndex:nIndex];
+        DrawSprite *nDS = (DrawSprite *)[m_drawSpriteArray objectAtIndex:nIndex];
         if (nDS && nDS.m_dispel) {
             NSInteger nX = nDS.m_x;
             NSInteger nY = nDS.m_y;
@@ -338,10 +336,9 @@ static inline int calcIndex(int x, int y)
             }
         }
     }
-    
 }
 
--(BOOL)allDrawNodeBeSelected:(BOOL)dispelType
+-(BOOL) allDrawNodeBeSelected:(BOOL)dispelType
 {
     if (m_toolsDispel) {
         return NO;
@@ -363,7 +360,7 @@ static inline int calcIndex(int x, int y)
 
 -(void) cancelAllDrawNodeBeSelected
 {
-    for (int i=0; i< m_drawSpriteArray.count; i++) {
+    for (int i = 0; i < m_drawSpriteArray.count; i++) {
         DrawSprite *ds = (DrawSprite *)[m_drawSpriteArray objectAtIndex:i];
         if (ds) {
             [ds unKeepSelected];
@@ -373,7 +370,7 @@ static inline int calcIndex(int x, int y)
 
 #pragma mark - datahandle 
 
--(void)startAnimtionDisplay
+-(void) startAnimtionDisplay
 {
     self.visible = true;
     if (m_drawSpriteArray) {
@@ -385,8 +382,7 @@ static inline int calcIndex(int x, int y)
     }
 }
 
-
--(void)startPlaying
+-(void) startPlaying
 {
     m_toolsDispel = false;
     m_canPlaying = YES;
@@ -395,7 +391,7 @@ static inline int calcIndex(int x, int y)
     [self setTouchEnabled:YES];
 }
 
--(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (!m_canPlaying) {
         return NO;
@@ -406,14 +402,13 @@ static inline int calcIndex(int x, int y)
     
     CGPoint local = [self convertToNodeSpace:touchLocation];
     
-    
     return [self touchBegine:local];
 }
 
--(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (!m_canPlaying) {
-        return ;
+        return;
     }
     
     CGPoint touchLocation = [touch locationInView: [touch view]];
@@ -421,11 +416,10 @@ static inline int calcIndex(int x, int y)
     
     CGPoint local = [self convertToNodeSpace:touchLocation];
     
-    
     [self touchMove:local];
 }
 
--(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
     [self touchEnd];
 }
@@ -435,13 +429,13 @@ static inline int calcIndex(int x, int y)
     [self touchEnd];
 }
 
--(void)moveOut
+-(void) moveOut
 {
     m_canPlaying = false;
     [self setVisible:false];
 }
 
--(void)moveIn
+-(void) moveIn
 {
     m_canPlaying = true;
     [self setVisible:true];
@@ -455,12 +449,12 @@ static inline int calcIndex(int x, int y)
         count = 13;
     }
     
-    NSString * soundName = [NSString stringWithFormat:@"Sounds/%d.aif",count];
+    NSString *soundName = [NSString stringWithFormat:@"Sounds/%d.aif", count];
     
     [[SimpleAudioEngine sharedEngine] playEffect:soundName];
 }
 
-- (void)dealloc
+- (void) dealloc
 {
     [m_stackArray removeLastObject]; [m_stackArray release];
     [m_drawSpriteArray removeLastObject]; [m_drawSpriteArray release];

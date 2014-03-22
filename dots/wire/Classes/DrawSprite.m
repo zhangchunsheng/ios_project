@@ -26,7 +26,7 @@
 
 -(void) calcColor
 {
-    int type = arc4random()%TOTAL_TYPE;
+    int type = arc4random() % TOTAL_TYPE;
     switch (type) {
         case 0:
             m_color = ccc4fBlue;
@@ -43,29 +43,28 @@
         case 4:
             m_color = ccc4fOrange;
             break;
-            
         default:
             m_color = ccc4fPurple;
             break;
     }
 }
 
--(void)spawnAtX:(NSInteger)x Y:(NSInteger)y Width:(CGFloat)w Height:(CGFloat)h
+-(void) spawnAtX:(NSInteger)x Y:(NSInteger)y Width:(CGFloat)w Height:(CGFloat)h
 {
     m_hasSelected = YES;
     m_dispel = NO;
     m_x = x;
     m_y = y;
     
-    m_w = w*2;
-    m_h = h*2;
+    m_w = w * 2;
+    m_h = h * 2;
         
     [self calcColor];
     
 //    [self setContentSize:CGSizeMake(DRAWSPRITE_RADIUES, DRAWSPRITE_RADIUES)];
     
     CGSize size = [CCDirector sharedDirector].winSize;
-    CGFloat wd = [self anchorPoint].x * m_w + x * m_w+addWidth;
+    CGFloat wd = [self anchorPoint].x * m_w + x * m_w + addWidth;
     
     m_drawNode = [CCDrawNode node];
         
@@ -80,14 +79,14 @@
     m_selectNode = [CCDrawNode node];
     [m_drawNode addChild:m_selectNode];
     
-    ccColor4F col = ccc4f(m_color.r, m_color.g, m_color.b, 255*0.75);
+    ccColor4F col = ccc4f(m_color.r, m_color.g, m_color.b, 255 * 0.75);
     
     [m_selectNode drawDot:ccp(0, 0) radius:DRAWSPRITE_RADIUES color:col];
     m_selectNode.visible = false;
 //    [m_drawNode clear];
 }
 
--(void)respawn
+-(void) respawn
 {
     m_dispel = NO;
     [m_drawNode stopAllActions];
@@ -161,7 +160,7 @@
     [m_drawNode runAction:seq];
 }
 
--(void)resetPropertyA:(NSInteger)x Y:(NSInteger)y
+-(void) resetPropertyA:(NSInteger)x Y:(NSInteger)y
 {
     if (y <m_y) {
         m_dropCount ++;
@@ -170,7 +169,7 @@
     m_y = y;
 }
 
--(void)resetDropdown
+-(void) resetDropdown
 {
     m_hasSelected = YES;
     
@@ -191,7 +190,7 @@
     m_dropCount = 0;
 }
 
--(BOOL)positionInContent:(CGPoint)pos
+-(BOOL) positionInContent:(CGPoint)pos
 {
 //    CGFloat width = DRAWSPRITE_WIDTH;
 //    CGFloat height = DRAWSPRITE_HEIGHT;
@@ -204,7 +203,7 @@
     return  CGRectContainsPoint(rect, pos);
 }
 
--(BOOL)selectedType
+-(BOOL) selectedType
 {
     m_hasSelected = YES;
     
@@ -224,7 +223,7 @@
     return YES;
 }
 
--(void)dispel:(bool)callf
+-(void) dispel:(bool)callf
 {
     CCScaleBy * scaleBy = [CCScaleBy actionWithDuration:0.1 scale:1.5];
     CCScaleBy * scaleBy2 = [CCScaleBy actionWithDuration:0.2 scale:0];
@@ -240,7 +239,7 @@
             
         } object:self];
         seq = [CCSequence actions:scaleBy,scaleBy2,callfu, nil];
-    }else{
+    } else {
         seq = [CCSequence actions:scaleBy,scaleBy2, nil];
     }
     
@@ -254,25 +253,21 @@
     m_hasSelected = NO;
 }
 
--(CGPoint)getDrawNodePosition
+-(CGPoint) getDrawNodePosition
 {
     return m_drawNode.position;
 }
 
--(void)KeepSelected
+-(void) KeepSelected
 {
     m_hasSelected = YES;
-    
     [m_selectNode stopAllActions];
-    
     [m_selectNode setVisible:true];
-    
     CCScaleBy * scaleBy = [CCScaleBy actionWithDuration:0.1 scale:1.7];
-    
     [m_selectNode runAction:scaleBy];
 }
 
--(void)unKeepSelected
+-(void) unKeepSelected
 {
     m_hasSelected = NO;
     [m_selectNode stopAllActions];
