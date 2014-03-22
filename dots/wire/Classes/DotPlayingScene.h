@@ -30,6 +30,7 @@
 +(CCScene*) scene;
 
 -(void) startDotGame;
+-(void) restartDotGame;
 
 -(void) playingScoreAdd:(NSInteger) score;
 

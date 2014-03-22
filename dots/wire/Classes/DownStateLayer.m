@@ -13,7 +13,7 @@
 @implementation DownStateLayer
 
 
-- (id)init
+- (id) init
 {
     CGSize s = [CCDirector sharedDirector].winSize;
     self = [super initWithColor:ccc4(255, 255, 255, 255) width:s.width height:60];
@@ -42,7 +42,7 @@
     return self;
 }
 
--(void)startAnimationDisplay
+-(void) startAnimationDisplay
 {    
     [self setAnchorPoint:ccp(0, 0) ];
     [self setPosition:ccp(0, -60) ];

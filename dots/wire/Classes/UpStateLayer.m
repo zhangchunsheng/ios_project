@@ -12,7 +12,7 @@
 
 @implementation UpStateLayer
 
-- (id)init
+- (id) init
 {
     CGSize s = [CCDirector sharedDirector].winSize;
     self = [super initWithColor:ccc4(255, 255, 255, 255) width:s.width height:60];
@@ -55,7 +55,7 @@
     return self;
 }
 
--(void)startAnimationDisplay
+-(void) startAnimationDisplay
 {
     CGSize s = [CCDirector sharedDirector].winSize;
     [self setVisible:true];
@@ -63,8 +63,8 @@
     [self setAnchorPoint:ccp(0, 0)];
     [self setPosition:ccp(0, s.height)];
     
-    CCMoveTo * moveTo = [CCMoveTo actionWithDuration:0.2 position:ccp(0, s.height-60)];
-    CCMoveTo * moveTo2 = [CCMoveTo actionWithDuration:0.2 position:ccp(0, s.height-43)];
+    CCMoveTo * moveTo = [CCMoveTo actionWithDuration:0.2 position:ccp(0, s.height - 60)];
+    CCMoveTo * moveTo2 = [CCMoveTo actionWithDuration:0.2 position:ccp(0, s.height - 43)];
     CCCallBlock * call = [CCCallBlock actionWithBlock:^{
         if (self.parent) {
             DotHudController * dhc = (DotHudController*)self.parent;
@@ -74,7 +74,7 @@
     [self runAction:[CCSequence actions:moveTo, moveTo2, call, nil]];
 }
 
--(void)resetScoreString:(NSString *)string
+-(void) resetScoreString:(NSString *)string
 {
     [m_labelScore setString:string];
 }

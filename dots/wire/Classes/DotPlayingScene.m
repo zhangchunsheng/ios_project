@@ -27,7 +27,7 @@
 	return scene;
 }
 
-- (id)init
+-(id) init
 {
     self = [super init];
     if (self) {
@@ -37,17 +37,15 @@
         [self addChild:m_data];
         
         m_hudController = [DotHudController node];
-        
         [self addChild:m_hudController];
     }
     return self;
 }
 
--(void)onEnterTransitionDidFinish
+-(void) onEnterTransitionDidFinish
 {
     [super onEnterTransitionDidFinish];
 }
-
 
 -(void) startDotGame
 {
@@ -56,10 +54,24 @@
     [self startTimerCounter];
 }
 
--(void)playingScoreAdd:(NSInteger)score
+-(void) restartDotGame
+{
+    [self removeAllChildren];
+    m_data      = [DataHandle node];
+    [self addChild:m_data];
+    
+    m_hudController = [DotHudController node];
+    [self addChild:m_hudController];
+    
+    [m_data startAnimtionDisplay];
+    [m_data startPlaying];
+    [self startTimerCounter];
+}
+
+-(void) playingScoreAdd:(NSInteger)score
 {
     m_score += score;
-    NSString * scores = [NSString stringWithFormat:@"%d",m_score];
+    NSString *scores = [NSString stringWithFormat:@"%d", m_score];
     [m_hudController resetScoreString:scores];
 }
 
@@ -92,7 +104,7 @@
     }
 }
 
--(void)pauseGame
+-(void) pauseGame
 {
     m_pause = true;
     [m_data moveOut];

@@ -9,7 +9,7 @@
 #import "PauseLayer.h"
 
 #import "DotGameScene.h"
-
+#import "DotHudController.h"
 
 @implementation PauseLayer
 
@@ -63,17 +63,27 @@
 
 -(void) resumeDotGame
 {
-    
+    if (self.parent) {
+        DotHudController *dhc = (DotHudController*)self.parent;
+        if (dhc) {
+            [dhc gamePause];
+        }
+    }
 }
 
 -(void) restartDotGame
 {
-    
+    if (self.parent) {
+        DotHudController *dhc = (DotHudController*)self.parent;
+        if (dhc) {
+            [dhc restartGame];
+        }
+    }
 }
 
 -(void) exitToMainScnen
 {
-    DotGameScene * scene = [DotGameScene node];
+    DotGameScene *scene = [DotGameScene node];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionProgressOutIn transitionWithDuration:0.2 scene:scene]];
 }
 

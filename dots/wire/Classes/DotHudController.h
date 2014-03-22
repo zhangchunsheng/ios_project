@@ -33,6 +33,7 @@
 -(void) resetScoreString:(NSString*) string;
 
 -(void) startGame;
+-(void) restartGame;
 
 -(void) playerUseSkill:(PLAYERTOOLTYPE) skillTpye;
 

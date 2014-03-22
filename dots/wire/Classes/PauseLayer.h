@@ -13,7 +13,6 @@
     CCMenuItemImage * m_resume;
     CCMenuItemImage * m_restart;
     CCMenuItemImage * m_exittomain;
-    
 }
 
 -(void) startAnimationDiaplay;

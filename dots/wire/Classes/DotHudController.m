@@ -17,7 +17,7 @@
 
 @implementation DotHudController
 
-- (id)init
+- (id) init
 {
     self = [super init];
     if (self) {
@@ -34,7 +34,7 @@
     return self;
 }
 
--(void)onEnter
+-(void) onEnter
 {
     [super onEnter];
     
@@ -42,7 +42,7 @@
     [m_downStateLayer startAnimationDisplay];
 }
 
--(void)startGame
+-(void) startGame
 {
     if (self.parent) {
         DotPlayingScene *dps = (DotPlayingScene*)self.parent;
@@ -50,7 +50,15 @@
     }
 }
 
--(void)gamePause
+-(void) restartGame
+{
+    if (self.parent) {
+        DotPlayingScene *dps = (DotPlayingScene*)self.parent;
+        [dps restartDotGame];
+    }
+}
+
+-(void) gamePause
 {
     if (m_pause) {
         if (self.parent) {
@@ -78,17 +86,17 @@
 }
 
 
--(void)resetTimeString:(NSString *)string
+-(void) resetTimeString:(NSString *)string
 {
     [m_upstateLayer resetTimeString:string];
 }
 
--(void)resetScoreString:(NSString *)string
+-(void) resetScoreString:(NSString *)string
 {
     [m_upstateLayer resetScoreString:string];
 }
 
--(void)playerUseSkill:(PLAYERTOOLTYPE)skillTpye
+-(void) playerUseSkill:(PLAYERTOOLTYPE)skillTpye
 {
     if (self.parent) {
         DotPlayingScene *playing = (DotPlayingScene*)self.parent;
