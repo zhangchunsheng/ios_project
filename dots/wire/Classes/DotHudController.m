@@ -91,7 +91,7 @@
 -(void)playerUseSkill:(PLAYERTOOLTYPE)skillTpye
 {
     if (self.parent) {
-        DotPlayingScene * playing = (DotPlayingScene*)self.parent;
+        DotPlayingScene *playing = (DotPlayingScene*)self.parent;
         if (playing) {
             [playing playerUsedToolDispel:skillTpye];
         }

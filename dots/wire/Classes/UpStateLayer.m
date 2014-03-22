@@ -15,7 +15,7 @@
 - (id)init
 {
     CGSize s = [CCDirector sharedDirector].winSize;
-    self = [super initWithColor:ccc4(198, 203, 206, 255) width:s.width height:60];
+    self = [super initWithColor:ccc4(255, 255, 255, 255) width:s.width height:60];
     if (self) {
         m_scoreItem = [CCMenuItemImage itemWithNormalImage:@"Images/scorebutton.png"
                                              selectedImage:@"Images/score_unselect.png" target:self selector:@selector(menuBePressed:)];

@@ -79,7 +79,7 @@
     if (m_delta >= 0.9999) {
         m_delta = 0.0;
         m_timeCounter -= 1;
-        if (m_timeCounter<= 0) {
+        if (m_timeCounter <= 0) {
 #warning gameover
             [m_hudController resetTimeString:[NSString stringWithFormat:@"%d", m_timeCounter]];
             [m_data moveOut];
@@ -107,7 +107,7 @@
 -(void) playerUsedToolDispel:(PLAYERTOOLTYPE)type
 {
     if (type == tooltime) {
-        
+        m_timeCounter += 3;
     } else {
         if (type == toolDispelAll) {
             if([m_data allDrawNodeBeSelected:YES]){

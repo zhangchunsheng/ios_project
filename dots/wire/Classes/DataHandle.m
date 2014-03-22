@@ -26,9 +26,8 @@ static inline int calcIndex(int x, int y)
     if (self) {
         m_drawSpriteArray = [[NSMutableArray alloc]init];
         
-        for (int y = 0; y<TOTALY; y++) {
-            for (int x = 0; x<TOTALX; x++) {
-                
+        for (int y = 0; y < TOTALY; y++) {
+            for (int x = 0; x < TOTALX; x++) {
                 DrawSprite * drawS = [DrawSprite node];
                 
                 [drawS spawnAtX:x Y:y Width:DRAWSPRITE_WIDTH Height:DRAWSPRITE_HEIGHT];
@@ -72,9 +71,7 @@ static inline int calcIndex(int x, int y)
 -(DrawSprite *)getCurrentSelectSprite:(CGPoint)pos
 {
     if (m_drawSpriteArray) {
-        
         for (DrawSprite * node in m_drawSpriteArray) {
-            
             if (node && [node positionInContent:pos]) {
                 return node;
             }
@@ -213,7 +210,7 @@ static inline int calcIndex(int x, int y)
 {
     NSInteger count = 0;
     BOOL dis = YES;
-    for (int i=0; i<m_drawSpriteArray.count; i++) {
+    for (int i = 0; i < m_drawSpriteArray.count; i++) {
         DrawSprite * node = [m_drawSpriteArray objectAtIndex:i];
         if (node && ccc4FEqual(m_currentDrawColor, node.m_color)) {
             if (dis) {
@@ -237,10 +234,10 @@ static inline int calcIndex(int x, int y)
         ccColor4B c4b = ccc4BFromccc4F(m_currentDrawColor);
         ccDrawColor4B(c4b.r, c4b.g, c4b.b, c4b.a);
         
-        if ([m_stackArray count]>=2) {
+        if ([m_stackArray count] >= 2) {
             DrawSprite * ds = [m_stackArray objectAtIndex:0];
             CGPoint pos = [ds getDrawNodePosition];
-            for (int c=1; c<m_stackArray.count; c++) {
+            for (int c = 1; c < m_stackArray.count; c++) {
                 ds  = [m_stackArray objectAtIndex:c];
                 CGPoint pos1 = [ds getDrawNodePosition];
                 ccDrawLine(pos, pos1);
@@ -257,14 +254,13 @@ static inline int calcIndex(int x, int y)
 {
     NSMutableArray * dropArray = [NSMutableArray array];
     
-    for (int i = 0; i< m_drawSpriteArray.count; i++) {
+    for (int i = 0; i < m_drawSpriteArray.count; i++) {
         DrawSprite * ds = (DrawSprite*)[m_drawSpriteArray objectAtIndex:i];
         
         [self calcDropDown:ds ResultArray:dropArray];
     }
     
-    for (int i = 0; i<dropArray.count; i++) {
-        
+    for (int i = 0; i < dropArray.count; i++) {
         DrawSprite * ds = (DrawSprite*)[dropArray objectAtIndex:i];
         
         [ds resetDropdown];
