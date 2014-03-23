@@ -14,59 +14,56 @@
 
 @implementation TopScoreLayer
 
-+(CCScene *)scene
++(CCScene *) scene
 {
-    CCScene * scene = [CCScene node];
-    
-    TopScoreLayer * layer = [TopScoreLayer node];
+    CCScene *scene = [CCScene node];
+    TopScoreLayer *layer = [TopScoreLayer node];
     
     [scene addChild:layer];
     [layer startAnimationDisplay];
     return scene;
 }
 
-- (id)init
+- (id) init
 {
-    self = [super initWithColor:ccc4(100, 100, 100, 255)];
+    self = [super initWithColor:ccc4(255, 255, 255, 255)];
     if (self) {
-        CGSize s= [CCDirector sharedDirector].winSize;
+        CGSize size = [CCDirector sharedDirector].winSize;
         
         [self setAnchorPoint:ccp(0, 0)];
-        m_logoLabel = [CCLabelTTF labelWithString:@"FUCK SHIT" fontName:@"Arial" fontSize:32];
+        m_logoLabel = [CCLabelTTF labelWithString:@"排行榜" fontName:@"Arial" fontSize:32];
         [m_logoLabel setColor:ccc3(0, 0, 0)];
-        [m_logoLabel setPosition:ccp(s.width/2, s.height - 50)];
+        [m_logoLabel setPosition:ccp(size.width / 2, size.height - 50)];
         [self addChild:m_logoLabel];
         
 //        CCSprite * levelSprite
-        CCSprite * thisRound = [CCSprite spriteWithFile:@"Images/thisRoundScore.png"];
-        [thisRound setPosition:ccp(60, s.height-130)];
+        CCSprite *thisRound = [CCSprite spriteWithFile:@"Images/thisRoundScore.png"];
+        [thisRound setPosition:ccp(60, size.height - 130)];
         [self addChild:thisRound];
         m_thisRound = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:18];
         [m_thisRound setColor:ccc3(0, 0, 0)];
         [m_thisRound setPosition:ccp(40, 10)];
         [thisRound addChild:m_thisRound];
         
-        
-        CCSprite * highScore = [CCSprite spriteWithFile:@"Images/HighScore.png"];
-        [highScore setPosition:ccp(s.width/2, s.height-130)];
+        CCSprite *highScore = [CCSprite spriteWithFile:@"Images/HighScore.png"];
+        [highScore setPosition:ccp(size.width / 2, size.height - 130)];
         [self addChild:highScore];
         m_highScore = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:18];
         [m_highScore setColor:ccc3(0, 0, 0)];
         [m_highScore setPosition:ccp(40, 10)];
         [highScore addChild:m_highScore];
         
-        CCSprite * goldSprite = [CCSprite spriteWithFile:@"Images/gold.png"];
-        [goldSprite setPosition:ccp(s.width-60, s.height-130)];
+        CCSprite *goldSprite = [CCSprite spriteWithFile:@"Images/gold.png"];
+        [goldSprite setPosition:ccp(size.width - 60, size.height - 130)];
         [self addChild:goldSprite];
         m_goldlabel = [CCLabelTTF labelWithString:@"" fontName:@"Arial" fontSize:18];
         [m_goldlabel setColor:ccc3(0, 0, 0)];
         [m_goldlabel setPosition:ccp(40, 10)];
         [goldSprite addChild:m_goldlabel];
         
-        
-        CCSprite * timerSprite = [CCSprite spriteWithFile:@"Images/timerb.png"];
+        CCSprite *timerSprite = [CCSprite spriteWithFile:@"Images/timerb.png"];
         [timerSprite setAnchorPoint:ccp(0, 0)];
-        [timerSprite setPosition:ccp(20, s.height - 200)];
+        [timerSprite setPosition:ccp(20, size.height - 200)];
         [self addChild:timerSprite];
         m_expProgress = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"Images/timer.png"]];
         [m_expProgress setAnchorPoint:ccp(0,0)];
@@ -75,8 +72,7 @@
         [m_expProgress setBarChangeRate:ccp(1,0)];
         [m_expProgress setPosition:ccp(3.5, 4.0)];
         [timerSprite addChild:m_expProgress];
-        [m_expProgress setPercentage:60];
-        
+        [m_expProgress setPercentage:100];
         
         m_levelLabel = [CCLabelTTF labelWithString:@"level:" fontName:@"Arial" fontSize:18];
         [m_levelLabel setAnchorPoint:ccp(0, 0.5)];
@@ -85,14 +81,13 @@
         [timerSprite addChild:m_levelLabel];
         
         m_tableLayer =  [TableLayer node];
-        [m_tableLayer setPosition:ccp(60, s.height/6)];
+        [m_tableLayer setPosition:ccp(60, size.height / 6)];
         [self addChild:m_tableLayer];
-        
         
         m_imageItem = [CCMenuItemImage itemWithTarget:self selector:@selector(imageItemPressed)];
         
         CCMenu *menu = [CCMenu menuWithItems:m_imageItem, nil];
-        [m_imageItem setPosition:ccp(0, -s.height/2+30)];
+        [m_imageItem setPosition:ccp(0, -size.height / 2 + 30)];
         [self addChild:menu];
         
         [self setVisible:false];
@@ -103,7 +98,7 @@
     return self;
 }
 
--(void)startAnimationDisplay:(NSInteger)score
+-(void) startAnimationDisplay:(NSInteger) score
 {
     m_imageButtonResponseType = true;//play again
     
@@ -130,8 +125,7 @@
     [self setTouchEnabled:true];
 }
 
-
--(void)startAnimationDisplay
+-(void) startAnimationDisplay
 {
     m_imageButtonResponseType = false;//return back
     [self setVisible:true];
@@ -152,11 +146,10 @@
         CCScene * playingScene = [DotPlayingScene scene];
         
         [[CCDirector sharedDirector] replaceScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:playingScene]];
-    }else{
+    } else {
         [[CCDirector sharedDirector]popScene];
     }
 }
-
 
 -(void) loadAnimation:(NSInteger)score :(NSArray*) array
 {
@@ -183,14 +176,14 @@
     
     if (m_imageButtonResponseType) {
         [m_thisRound setString:[NSString stringWithFormat:@"%d",score]];
-    }else{
+    } else {
         [m_thisRound setString:@"--"];
     }
     
     [m_tableLayer loadLoaclLayer:1];
 }
 
--(BOOL)ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
+-(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (!self.visible) {
         return false;
@@ -206,7 +199,7 @@
     return true;
 }
 
--(void)ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
+-(void) ccTouchMoved:(UITouch *)touch withEvent:(UIEvent *)event
 {
     if (!m_canTriggerAction) {
         return;
@@ -216,7 +209,6 @@
 	touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
     
     CGPoint local = [self convertToNodeSpace:touchLocation];
-    
     CGFloat distance = ccpDistance(local, m_touchStartLocation);
     
     if (distance >= 20) {
@@ -234,10 +226,9 @@
 //    NSLog(@"toch cancel!");
 //}
 
--(void)ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
+-(void) ccTouchEnded:(UITouch *)touch withEvent:(UIEvent *)event
 {
 //    NSLog(@"TOUCH END!");
-    
     if (m_canTriggerAction) {
         return;
     }
@@ -246,10 +237,9 @@
 	touchLocation = [[CCDirector sharedDirector] convertToGL: touchLocation];
     
     CGPoint local = [self convertToNodeSpace:touchLocation];
-    
     CGFloat distance = ccpDistance(local, m_touchStartLocation);
     
-    if (distance>=5) {
+    if (distance >= 5) {
         m_canTriggerAction = false;
         
         if (m_touchStartLocation.x < local.x) {
@@ -258,7 +248,6 @@
             [m_tableLayer rightPageMove:200];
         }
     }
-
 }
 
 -(void)onExit

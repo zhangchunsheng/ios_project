@@ -94,7 +94,6 @@
 -(void) playingNow:(id)sender
 {
     CCScene * playingScene = [DotPlayingScene scene];
-    
     [[CCDirector sharedDirector] replaceScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:playingScene]];
 }
 
@@ -102,14 +101,12 @@
 {
 //    [[NetWorkHandle getSharedNetWork] startMatchOppoent:self];
     CCScene * multiplePlayerGameScene = [MutablePlayerScene node];
-    
     [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:multiplePlayerGameScene]];
 }
 
 -(void) highScore:(id) sender
 {
     CCScene * highScoreScene = [TopScoreLayer scene];
-    
     [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:highScoreScene]];
 }
 

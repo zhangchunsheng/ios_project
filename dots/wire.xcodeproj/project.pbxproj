@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		1F0D03BD18DC14B500CDF67C /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D03BA18DC14B500CDF67C /* NSString+MD5Addition.m */; };
 		1F0D03BE18DC14B500CDF67C /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D03BC18DC14B500CDF67C /* UIDevice+IdentifierAddition.m */; };
+		1F41528518DE5AE600CD0A5B /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F41528418DE5AE600CD0A5B /* SettingsLayer.m */; };
+		1F41528818DE5B9400CD0A5B /* Aboutus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F41528718DE5B9400CD0A5B /* Aboutus.m */; };
 		1F6A057618DC524600A31916 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6A057518DC524600A31916 /* Images.xcassets */; };
 		2D09EF4E175C6846005035C6 /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D09EF4D175C6846005035C6 /* DataController.m */; };
 		2D160F0C1772A64B00253039 /* MatchHudLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D160F0B1772A64B00253039 /* MatchHudLayer.m */; };
@@ -179,6 +181,10 @@
 		1F0D03BA18DC14B500CDF67C /* NSString+MD5Addition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+MD5Addition.m"; sourceTree = "<group>"; };
 		1F0D03BB18DC14B500CDF67C /* UIDevice+IdentifierAddition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIDevice+IdentifierAddition.h"; sourceTree = "<group>"; };
 		1F0D03BC18DC14B500CDF67C /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
+		1F41528318DE5AE600CD0A5B /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
+		1F41528418DE5AE600CD0A5B /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
+		1F41528618DE5B9400CD0A5B /* Aboutus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aboutus.h; sourceTree = "<group>"; };
+		1F41528718DE5B9400CD0A5B /* Aboutus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aboutus.m; sourceTree = "<group>"; };
 		1F6A057518DC524600A31916 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		2D09EF4C175C6846005035C6 /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
 		2D09EF4D175C6846005035C6 /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
@@ -553,13 +559,31 @@
 			path = DeviceMD5;
 			sourceTree = "<group>";
 		};
-		2D09EF4B175C67EB005035C6 /* data */ = {
+		1F41527D18DE59E600CD0A5B /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				1F41528318DE5AE600CD0A5B /* SettingsLayer.h */,
+				1F41528418DE5AE600CD0A5B /* SettingsLayer.m */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		1F41527E18DE59F100CD0A5B /* Aboutus */ = {
+			isa = PBXGroup;
+			children = (
+				1F41528618DE5B9400CD0A5B /* Aboutus.h */,
+				1F41528718DE5B9400CD0A5B /* Aboutus.m */,
+			);
+			name = Aboutus;
+			sourceTree = "<group>";
+		};
+		2D09EF4B175C67EB005035C6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
 				2D09EF4C175C6846005035C6 /* DataController.h */,
 				2D09EF4D175C6846005035C6 /* DataController.m */,
 			);
-			name = data;
+			name = Data;
 			sourceTree = "<group>";
 		};
 		2D160F0D1772AFEC00253039 /* MatchPlaying */ = {
@@ -1032,7 +1056,7 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		2DB1BE0A175DCF01000BFEB1 /* huds */ = {
+		2DB1BE0A175DCF01000BFEB1 /* Huds */ = {
 			isa = PBXGroup;
 			children = (
 				2DB1BE10175ECE5C000BFEB1 /* DotHudController.h */,
@@ -1044,7 +1068,7 @@
 				2DA78AF7176087A700F63F58 /* PauseLayer.h */,
 				2DA78AF8176087A700F63F58 /* PauseLayer.m */,
 			);
-			name = huds;
+			name = Huds;
 			sourceTree = "<group>";
 		};
 		2DBBE6031755CAF60013BF0F /* Classes */ = {
@@ -1056,7 +1080,7 @@
 				2DC87BA11771779E00F21448 /* NetWorkHandle */,
 				2DB1BE0E175DEB6C000BFEB1 /* Sounds */,
 				2DB1BE08175DC955000BFEB1 /* Images */,
-				2D09EF4B175C67EB005035C6 /* data */,
+				2D09EF4B175C67EB005035C6 /* Data */,
 				2DE9C3C31759DB3A00F1410F /* Core */,
 				2DE9C3C21759DB2A00F1410F /* Scene */,
 			);
@@ -1115,8 +1139,10 @@
 		2DE9C3C21759DB2A00F1410F /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1F41527E18DE59F100CD0A5B /* Aboutus */,
+				1F41527D18DE59E600CD0A5B /* Settings */,
 				2DC87BCF17719CAB00F21448 /* MutableLayer */,
-				2DB1BE0A175DCF01000BFEB1 /* huds */,
+				2DB1BE0A175DCF01000BFEB1 /* Huds */,
 				2D46608217617F0800A69024 /* HighScore */,
 				2D3A14771758817E00B229EF /* DotGameScene.h */,
 				2D3A14781758817E00B229EF /* DotGameScene.m */,
@@ -1216,6 +1242,7 @@
 			files = (
 				2D6A2FBC1755C68400E2883A /* CCAction.m in Sources */,
 				2D6A2FBF1755C68400E2883A /* CCActionCamera.m in Sources */,
+				1F41528518DE5AE600CD0A5B /* SettingsLayer.m in Sources */,
 				2D6A2FC21755C68400E2883A /* CCActionCatmullRom.m in Sources */,
 				2D6A2FC51755C68400E2883A /* CCActionEase.m in Sources */,
 				2D6A2FC81755C68400E2883A /* CCActionGrid.m in Sources */,
@@ -1344,6 +1371,7 @@
 				2DC87BC71771875F00F21448 /* ASIFormDataRequest.m in Sources */,
 				2DC87BC81771875F00F21448 /* ASIHTTPRequest.m in Sources */,
 				2DC87BC91771875F00F21448 /* ASIInputStream.m in Sources */,
+				1F41528818DE5B9400CD0A5B /* Aboutus.m in Sources */,
 				2DC87BCA1771875F00F21448 /* ASINetworkQueue.m in Sources */,
 				2DC87BCB1771875F00F21448 /* Reachability.m in Sources */,
 				2DC87BCE177195F200F21448 /* MutablePlayerScene.m in Sources */,

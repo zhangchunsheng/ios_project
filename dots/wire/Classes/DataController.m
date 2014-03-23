@@ -7,9 +7,7 @@
 //
 
 #import "DataController.h"
-
 #import "cocos2d.h"
-
 
 #define WORLD_TOPLIST @"worldtoplist"
 #define LOCAL_TOPLIST @"localtoplist"
@@ -24,15 +22,20 @@ static DataController * _sharedDataController=NULL;
 
 @implementation DataController
 
-+(DataController *)getSharedDataController
+-(void) saveUserName:(NSString *)name
 {
-    if (_sharedDataController==NULL) {
+    
+}
+
++(DataController *) getSharedDataController
+{
+    if (_sharedDataController == NULL) {
         _sharedDataController = [[self alloc]init];
     }
     return _sharedDataController;
 }
 
-+(void)releaseSharedDataController
++(void) releaseSharedDataController
 {
     if (_sharedDataController) {
         [_sharedDataController autorelease];
@@ -40,11 +43,10 @@ static DataController * _sharedDataController=NULL;
     }
 }
 
-- (id)init
+- (id) init
 {
     self = [super init];
     if (self) {
-        
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                              NSUserDomainMask, YES);
         NSString * documentsDirectory = [paths objectAtIndex:0];
@@ -57,12 +59,12 @@ static DataController * _sharedDataController=NULL;
         
         m_filePath = [[documentsDirectory stringByAppendingPathComponent:@"data"]retain];
         
-        NSLog(@"%@",m_filePath); 
+        NSLog(@"%@", m_filePath);
     }
     return self;
 }
 
--(NSArray *)readLoaclScoreTopList
+-(NSArray *) readLoaclScoreTopList
 {
     [self reloadData];
     
@@ -78,7 +80,7 @@ static DataController * _sharedDataController=NULL;
     return NULL;
 }
 
--(NSDictionary *)readWorldScpreTopList
+-(NSDictionary *) readWorldScpreTopList
 {
     [self reloadData];
     
@@ -103,7 +105,6 @@ static DataController * _sharedDataController=NULL;
 //        [array initWithObjects:[NSNumber numberWithInteger:1],[NSNumber numberWithInteger:1], nil]
     }
     
-    
     NSArray * array= [m_dataDic objectForKey:PLAYER_PROPERTY];
     if (!array) {
         [array initWithObjects:[NSNumber numberWithInteger:1],
@@ -113,7 +114,7 @@ static DataController * _sharedDataController=NULL;
     return array;
 }
 
--(NSInteger)getHighScore
+-(NSInteger) getHighScore
 {
     NSArray * sco = [self readLoaclScoreTopList];
     if (!sco) {
@@ -131,24 +132,25 @@ static DataController * _sharedDataController=NULL;
     [self saveDataIntoFile:[self readLoaclScoreTopList] World:[self readWorldScpreTopList] :array ];
 }
 
--(void)savePlayerTemplateData:(NSInteger)score
+-(void) savePlayerTemplateData:(NSInteger)score
 {
     NSNumber * number = [NSNumber numberWithInteger:score];
     
     NSArray * scoreArray = [self readLoaclScoreTopList];
     NSMutableArray * saveScoreArray = NULL;
+    
     if (scoreArray) {
         saveScoreArray = [NSMutableArray arrayWithArray:scoreArray];
-    }else{
+    } else {
         saveScoreArray = [NSMutableArray array];
     }
+    
     [saveScoreArray addObject:number];
     [saveScoreArray sortUsingFunction:Compare context:nil];
     
     BOOL flag = false;
     
-    if (saveScoreArray.count>7) {
-        
+    if (saveScoreArray.count > 7) {
         if (number == [saveScoreArray lastObject]) {
             flag = true;
         }
@@ -172,20 +174,21 @@ static inline NSInteger Compare(id num1, id num2, void *context)
     else return NSOrderedSame;
 }
 
--(void) saveDataIntoFile:(NSArray*) localArray World:(NSDictionary*) worldLis :(NSArray*)pro{
+-(void) saveDataIntoFile:(NSArray*) localArray World:(NSDictionary*) worldLis :(NSArray*)pro
+{
     NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:
                           localArray,LOCAL_TOPLIST,worldLis,WORLD_TOPLIST,pro,PLAYER_PROPERTY, nil];
     
     [NSKeyedArchiver archiveRootObject:dic toFile:m_filePath];
 }
 
--(void) reloadData{
-    
+-(void) reloadData
+{
     if (m_dataDic) {
         [m_dataDic autorelease];
     }
     
-    if (![[NSFileManager defaultManager] fileExistsAtPath:m_filePath]){
+    if (![[NSFileManager defaultManager] fileExistsAtPath:m_filePath]) {
         m_dataDic = nil;
         return;
     }
