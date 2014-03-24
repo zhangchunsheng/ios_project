@@ -44,18 +44,13 @@
         [backGroundLayer setAnchorPoint:ccp(0, 0)];
         [self addChild:backGroundLayer];
         
-//        [DataController getSharedDataController];
-//
-//        [[DataController getSharedDataController] savePlayerTemplateData:300];
-//        [[DataController getSharedDataController] savePlayerTemplateData:300];
-//        [[DataController getSharedDataController] savePlayerTemplateData:300];
 //        [[DataController getSharedDataController] savePlayerTemplateData:300];
 //
 //        NSArray *array = [NSArray arrayWithArray:[[DataController getSharedDataController] readLoaclScoreTopList]];
 //        
 //        NSLog(@"%@",array);
 //        for (int i = 0 ; i < 80 ; i++) {
-//            NSLog(@"level %d:%ld", i+1, expArray[i]);
+//            NSLog(@"level %d:%ld", i + 1, expArray[i]);
 //        }
     }
     return self;

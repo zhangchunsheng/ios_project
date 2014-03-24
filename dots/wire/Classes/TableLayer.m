@@ -46,15 +46,20 @@
 {
     [m_localLayer removeAllChildren];
     
-    CCLabelTTF *title = [CCLabelTTF labelWithString:@"your top score" fontName:@"Arial" fontSize:14];
-    
-    [title setPosition:ccp(m_localLayer.contentSize.width / 2, m_localLayer.contentSize.height + 10)];
+    CCLabelTTF *title = [CCLabelTTF labelWithString:@"本地排行榜" fontName:@"Arial" fontSize:14];
+    [title setColor:ccc3(0, 0, 0)];
+    [title setPosition:ccp(100, m_localLayer.contentSize.height - 10)];
     [m_localLayer addChild:title];
+    
+    CCLabelTTF *remember = [CCLabelTTF labelWithString:@"不要和人比，你要赢得是你自己" fontName:@"Arial" fontSize:14];
+    [remember setColor:ccc3(39, 104, 45)];
+    [remember setPosition:ccp(100, m_localLayer.contentSize.height - 30)];
+    [m_localLayer addChild:remember];
     
     NSArray *scorearray = [[DataController getSharedDataController] readLoaclScoreTopList];
     
     NSObject *object;
-    NSInteger count = 6;
+    NSInteger count = 9;
     BOOL flag = true;
     
 //    [self loadWorldTopList:score];
@@ -70,29 +75,34 @@
             continue;
         }
         
-        NSNumber *number = (NSNumber*)object;
+        NSNumber *number = (NSNumber*) object;
         int nu = number.integerValue;
         
-        CCLabelTTF *scorelabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",nu] fontName:@"Arial" fontSize:18];
-        CCLabelTTF *namelabel = [CCLabelTTF labelWithString:@"YOU" fontName:@"Arial" fontSize:14];
+        CCLabelTTF *namelabel = [CCLabelTTF labelWithString:@"我自己" fontName:@"Arial" fontSize:14];
+        CCLabelTTF *scorelabel = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"%d",nu] fontName:@"Arial" fontSize:14];
         
         if (score == nu && flag) {
             flag = false;
-            [scorelabel setColor:ccc3(255, 0, 0)];
             [namelabel setColor:ccc3(255, 0, 0)];
+            [scorelabel setColor:ccc3(255, 0, 0)];
         } else {
-            [scorelabel setColor:ccc3(0, 0, 0)];
-            [namelabel setColor:ccc3(0, 0, 0)];
+            if(count % 2 == 0) {
+                [namelabel setColor:ccc3(38, 143, 207)];
+                [scorelabel setColor:ccc3(38, 143, 207)];
+            } else {
+                [namelabel setColor:ccc3(0, 0, 0)];
+                [scorelabel setColor:ccc3(0, 0, 0)];
+            }
         }
         
-        [scorelabel setAnchorPoint:ccp(1,0)];
-        [scorelabel setPosition:ccp(150, 20 * count)];
-        
         [namelabel setAnchorPoint:ccp(0, 0)];
-        [namelabel setPosition:ccp(15, 21 * count)];
+        [namelabel setPosition:ccp(15, 16 * count - 6 * (9 - count + 1))];
         
-        [m_localLayer addChild:scorelabel];
+        [scorelabel setAnchorPoint:ccp(0, 0)];
+        [scorelabel setPosition:ccp(120, 16 * count - 6 * (9 - count + 1))];
+        
         [m_localLayer addChild:namelabel];
+        [m_localLayer addChild:scorelabel];
         count--;
     }
 }
@@ -101,11 +111,9 @@
 {
     [m_worldLayer removeAllChildren];
     
-    CCLabelTTF *title = [CCLabelTTF labelWithString:@"world top score" fontName:@"Arial" fontSize:14];
-    
-    [title setPosition:ccp(m_localLayer.contentSize.width / 2, m_localLayer.contentSize.height + 10)];
+    CCLabelTTF *title = [CCLabelTTF labelWithString:@"世界排行榜" fontName:@"Arial" fontSize:14];
+    [title setPosition:ccp(100, m_localLayer.contentSize.height - 20)];
     [m_worldLayer addChild:title];
-    
     
     NSDictionary *dic = [[DataController getSharedDataController] readWorldScoreTopList];
     

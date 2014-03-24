@@ -11,8 +11,8 @@
 
 @implementation NSString(MD5Addition)
 
-- (NSString *) stringFromMD5{
-    
+- (NSString *) stringFromMD5
+{
     if(self == nil || [self length] == 0)
         return nil;
     
@@ -22,8 +22,8 @@
     CC_MD5(value, strlen(value), outputBuffer);
     
     NSMutableString *outputString = [[NSMutableString alloc] initWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-    for(NSInteger count = 0; count < CC_MD5_DIGEST_LENGTH; count++){
-        [outputString appendFormat:@"%02x",outputBuffer[count]];
+    for(NSInteger count = 0; count < CC_MD5_DIGEST_LENGTH; count++) {
+        [outputString appendFormat:@"%02x", outputBuffer[count]];
     }
     
     return [outputString autorelease];

@@ -102,11 +102,11 @@
     m_imageButtonResponseType = true;//play again
     
     [self setVisible:true];
-    CGSize s = [CCDirector sharedDirector].winSize;
+    CGSize size = [CCDirector sharedDirector].winSize;
     [self stopAllActions];
-    [self setPosition:ccp(s.width, 0 )];
+    [self setPosition:ccp(size.width, 0)];
     
-    CCMoveTo  *moveTo = [CCMoveTo actionWithDuration:0.2 position:ccp(0, 0)];
+    CCMoveTo *moveTo = [CCMoveTo actionWithDuration:0.2 position:ccp(0, 0)];
     
     CCCallBlock *callB = [CCCallBlock actionWithBlock:^{
         [self loadAnimation:score :[[DataController getSharedDataController] readPlayerDefaultProperty]];
@@ -114,12 +114,10 @@
     
     [self runAction:[CCSequence actionOne:moveTo two:callB]];
     
-    
     CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"Images/TopPlayingNow.png"];
     //    [m_imageItem setNormalImage:texture];
     CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:texture rect:CGRectMake(0, 0, texture.contentSize.width, texture.contentSize.height)];
     [m_imageItem setNormalSpriteFrame:frame];
-    
     
     [self setTouchEnabled:true];
 }
@@ -170,7 +168,7 @@
     [m_highScore setString:[NSString stringWithFormat:@"%d", high]];
     //[m_goldlabel setString:[NSString stringWithFormat:@"%d", gold]];
     [m_goldlabel setString:[NSString stringWithFormat:@"敬请期待"]];
-    [m_levelLabel setString:[NSString stringWithFormat:@"level:%d", level]];
+    //[m_levelLabel setString:[NSString stringWithFormat:@"level:%d", level]];
     
     
     if (m_imageButtonResponseType) {

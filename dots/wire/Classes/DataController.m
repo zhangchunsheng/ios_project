@@ -18,7 +18,7 @@
 #define SCORE_KEY @"score"
 //#define DATA_PLIST_NAME 
 
-static DataController * _sharedDataController=NULL;
+static DataController *_sharedDataController = NULL;
 
 @implementation DataController
 
@@ -132,7 +132,7 @@ static DataController * _sharedDataController=NULL;
     [self saveDataIntoFile:[self readLoaclScoreTopList] World:[self readWorldScoreTopList] :array ];
 }
 
--(void) savePlayerTemplateData:(NSInteger)score
+-(void) savePlayerTemplateData:(NSInteger) score
 {
     NSNumber *number = [NSNumber numberWithInteger:score];
     
@@ -150,7 +150,7 @@ static DataController * _sharedDataController=NULL;
     
     BOOL flag = false;
     
-    if (saveScoreArray.count > 7) {
+    if (saveScoreArray.count > 9) {
         if (number == [saveScoreArray lastObject]) {
             flag = true;
         }

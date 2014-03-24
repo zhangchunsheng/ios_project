@@ -27,9 +27,9 @@
 
 -(void) gamePause;
 
--(void) currentGameOver:(NSInteger)score;
+-(void) currentGameOver:(NSInteger) score;
 
--(void) resetTimeString:(NSString*)string;
+-(void) resetTimeString:(NSString*) string;
 -(void) resetScoreString:(NSString*) string;
 
 -(void) startGame;

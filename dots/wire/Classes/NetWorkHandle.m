@@ -62,11 +62,13 @@ static NetWorkHandle* _sharedNewWork = NULL;
     [startMatchRequest startAsynchronous];
 }
 
--(void)cancellationMatchOppoent{
+-(void)cancellationMatchOppoent
+{
     startMatchDel = Nil;
 }
 
--(void) sendCurrentPoint:(id) sendDelegate point:(NSInteger) point{
+-(void) sendCurrentPoint:(id) sendDelegate point:(NSInteger) point
+{
     sendPointDel = sendDelegate;
     NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"NULL",selfMd5Address,point]];
     ASIHTTPRequest * sendPoint = [ASIHTTPRequest requestWithURL:url];
@@ -96,7 +98,8 @@ static NetWorkHandle* _sharedNewWork = NULL;
     [sendPoint startAsynchronous];
 }
 
--(void) cancellationSendPoint{
+-(void) cancellationSendPoint
+{
     sendPointDel = nil;
 }
 
@@ -131,6 +134,7 @@ static NetWorkHandle* _sharedNewWork = NULL;
     }];
     [gameOverR startAsynchronous];
 }
+
 -(void) cancellationGameOver{
     
 }

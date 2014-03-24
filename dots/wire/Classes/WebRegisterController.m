@@ -34,10 +34,9 @@
     self.view = nil;
     self.view = webView;
     
-    NSString * urls = [[UIDevice currentDevice]uniqueGlobalDeviceIdentifier];
-//    NSString * urls = @"sssss";
+    NSString *urls = [[UIDevice currentDevice]uniqueGlobalDeviceIdentifier];
     
-    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"NULL",urls]];
+    NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"NULL", urls]];
     NSMutableURLRequest * req = [NSMutableURLRequest requestWithURL:url];
     [req setTimeoutInterval:30.0];
     [webView loadRequest:req];
@@ -62,7 +61,8 @@
 	[self.view addSubview:leftButton]; //添加到view上
 }
 
--(void) buttonPress:(id)sender{
+-(void) buttonPress:(id)sender
+{
     [self.navigationController popViewControllerAnimated:true];
 }
 
@@ -72,16 +72,18 @@
     // Dispose of any resources that can be recreated.
 }
 
--(void)webViewDidStartLoad:(UIWebView *)webView{
+-(void)webViewDidStartLoad:(UIWebView *)webView
+{
 //    [m_alertView show];
 }
 
--(void)webViewDidFinishLoad:(UIWebView *)webView{
+-(void)webViewDidFinishLoad:(UIWebView *)webView
+{
 //    [m_alertView release];
 }
 
--(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error{
-    
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error
+{    
 //    [m_alertView release];
     
     UIAlertView *alterview = [[UIAlertView alloc] initWithTitle:@"Error Message!"message:[error localizedDescription]  delegate:nil cancelButtonTitle:nil otherButtonTitles:@"OK", nil];

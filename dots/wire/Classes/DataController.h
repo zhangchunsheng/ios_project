@@ -27,6 +27,6 @@
 
 -(NSInteger) getHighScore;
 
--(void) saveUserName:(NSString*)name;
+-(void) saveUserName:(NSString*) name;
 
 @end
