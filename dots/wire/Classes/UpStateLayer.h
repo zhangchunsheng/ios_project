@@ -15,6 +15,7 @@
     
     CCMenuItemImage *m_scoreItem;
     CCMenuItemImage *m_timeItem;
+    CCMenuItemImage *m_pauseItem;
 }
 
 -(void) resetTimeString:(NSString*) string;

@@ -23,13 +23,17 @@
         m_timeItem = [CCMenuItemImage itemWithNormalImage:@"Images/timebutton.png"
                                             selectedImage:@"Images/time_unselect.png" target:self selector:@selector(menuBePressed:)];
         
+        m_pauseItem = [CCMenuItemImage itemWithNormalImage:@"Images/pausebutton.png" selectedImage:@"Images/pause_unselect.png" target:self selector:@selector(menuBePressed:)];
+        
         [m_scoreItem setAnchorPoint:ccp(0, 0)];
-        [m_timeItem setAnchorPoint:ccp(1, 0)];
+        [m_timeItem setAnchorPoint:ccp(0.5, 0)];
+        [m_pauseItem setAnchorPoint:ccp(1, 0)];
         
         [m_scoreItem setPosition:ccp(0, 0)];
-        [m_timeItem setPosition:ccp(s.width, 0)];
+        [m_timeItem setPosition:ccp(s.width / 2, 0)];
+        [m_pauseItem setPosition:ccp(s.width, 0)];
         
-        CCMenu * menu = [CCMenu menuWithItems:m_scoreItem, m_timeItem, nil];
+        CCMenu * menu = [CCMenu menuWithItems:m_scoreItem, m_timeItem, m_pauseItem, nil];
         
         [menu setPosition:ccp(0, 2)];
         [self addChild:menu];
