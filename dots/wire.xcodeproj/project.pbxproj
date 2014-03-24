@@ -28,7 +28,6 @@
 		2D6A2F981755C68400E2883A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6A2F971755C68400E2883A /* UIKit.framework */; };
 		2D6A2F9A1755C68400E2883A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6A2F991755C68400E2883A /* Foundation.framework */; };
 		2D6A2F9C1755C68400E2883A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6A2F9B1755C68400E2883A /* CoreGraphics.framework */; };
-		2D6A2F9E1755C68400E2883A /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2D6A2F9D1755C68400E2883A /* GameKit.framework */; };
 		2D6A2FA21755C68400E2883A /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6A2FA11755C68400E2883A /* Default.png */; };
 		2D6A2FA41755C68400E2883A /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6A2FA31755C68400E2883A /* Default@2x.png */; };
 		2D6A2FA61755C68400E2883A /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2D6A2FA51755C68400E2883A /* Default-568h@2x.png */; };
@@ -212,7 +211,6 @@
 		2D6A2F971755C68400E2883A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		2D6A2F991755C68400E2883A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		2D6A2F9B1755C68400E2883A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
-		2D6A2F9D1755C68400E2883A /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		2D6A2FA11755C68400E2883A /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Default.png; path = Resources/Default.png; sourceTree = "<group>"; };
 		2D6A2FA31755C68400E2883A /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default@2x.png"; path = "Resources/Default@2x.png"; sourceTree = "<group>"; };
 		2D6A2FA51755C68400E2883A /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Default-568h@2x.png"; path = "Resources/Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -544,7 +542,6 @@
 				2D6A2F981755C68400E2883A /* UIKit.framework in Frameworks */,
 				2D6A2F9A1755C68400E2883A /* Foundation.framework in Frameworks */,
 				2D6A2F9C1755C68400E2883A /* CoreGraphics.framework in Frameworks */,
-				2D6A2F9E1755C68400E2883A /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -671,7 +668,6 @@
 				2D6A2F971755C68400E2883A /* UIKit.framework */,
 				2D6A2F991755C68400E2883A /* Foundation.framework */,
 				2D6A2F9B1755C68400E2883A /* CoreGraphics.framework */,
-				2D6A2F9D1755C68400E2883A /* GameKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -1205,6 +1201,16 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = CpyShine;
+				TargetAttributes = {
+					2D6A2F891755C68400E2883A = {
+						DevelopmentTeam = VSAQU39H89;
+						SystemCapabilities = {
+							com.apple.GameCenter = {
+								enabled = 0;
+							};
+						};
+					};
+				};
 			};
 			buildConfigurationList = 2D6A2F851755C68400E2883A /* Build configuration list for PBXProject "wire" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1446,6 +1452,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chunsheng Zhang (VSAQU39H89)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1458,7 +1466,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "34AFAF1E-04FC-4380-9B8D-C3E83D7A1291";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -1469,6 +1478,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Chunsheng Zhang (VSAQU39H89)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Chunsheng Zhang (VSAQU39H89)";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = wire/Prefix.pch;
@@ -1480,7 +1491,8 @@
 					"-ObjC",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "34AFAF1E-04FC-4380-9B8D-C3E83D7A1291";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
