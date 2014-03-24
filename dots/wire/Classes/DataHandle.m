@@ -174,7 +174,7 @@ static inline int calcIndex(int x, int y)
     
     if (m_stackArray.count >= 2) {
         if (m_removeAllSameColor) {
-            [self dispelAllSameColorDotsWithSelected];
+            dispelCount += [self dispelAllSameColorDotsWithSelected];
         } else {
             for (int i = 0 ; i < m_stackArray.count ; i++) {
                 DrawSprite *node = [m_stackArray objectAtIndex:i];
@@ -216,7 +216,7 @@ static inline int calcIndex(int x, int y)
                 dis = NO;
             }
             [node dispel:NO];
-            count ++;
+            count++;
         }
     }
     return count;
@@ -242,7 +242,7 @@ static inline int calcIndex(int x, int y)
                 pos = pos1;
             }
         }
-        DrawSprite * ds = [m_stackArray lastObject];
+        DrawSprite *ds = [m_stackArray lastObject];
         CGPoint pos = [ds getDrawNodePosition];
         ccDrawLine(pos, m_movePos);
     }
