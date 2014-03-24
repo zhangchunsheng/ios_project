@@ -8,12 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface DataController : NSObject{
-    
+@interface DataController : NSObject {
     NSString * m_filePath;
-    
     NSDictionary * m_dataDic;
-    
 }
 
 +(DataController*) getSharedDataController;
@@ -22,10 +19,9 @@
 
 -(void) savePlayerTemplateData:(NSInteger) score;
 
-
 -(NSArray*) readLoaclScoreTopList;
 
--(NSDictionary*) readWorldScpreTopList;
+-(NSDictionary*) readWorldScoreTopList;
 
 -(NSArray *) readPlayerDefaultProperty;
 

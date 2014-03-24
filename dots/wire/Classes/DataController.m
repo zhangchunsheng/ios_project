@@ -49,7 +49,7 @@ static DataController * _sharedDataController=NULL;
     if (self) {
         NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
                                                              NSUserDomainMask, YES);
-        NSString * documentsDirectory = [paths objectAtIndex:0];
+        NSString *documentsDirectory = [paths objectAtIndex:0];
         if (!documentsDirectory) {
             NSLog(@"读取硬盘文件夹 document 失败");
 //            return NULL;
@@ -59,7 +59,7 @@ static DataController * _sharedDataController=NULL;
         
         m_filePath = [[documentsDirectory stringByAppendingPathComponent:@"data"]retain];
         
-        NSLog(@"%@", m_filePath);
+        NSLog(@"m_filepath:%@", m_filePath);
     }
     return self;
 }
@@ -72,7 +72,7 @@ static DataController * _sharedDataController=NULL;
         return nil;
     }
     
-    NSArray * array = [m_dataDic objectForKey:LOCAL_TOPLIST];
+    NSArray *array = [m_dataDic objectForKey:LOCAL_TOPLIST];
     
     if (array) {
         return array;
@@ -80,7 +80,7 @@ static DataController * _sharedDataController=NULL;
     return NULL;
 }
 
--(NSDictionary *) readWorldScpreTopList
+-(NSDictionary *) readWorldScoreTopList
 {
     [self reloadData];
     
@@ -88,7 +88,7 @@ static DataController * _sharedDataController=NULL;
         return nil;
     }
     
-    NSDictionary * world = [m_dataDic objectForKey:WORLD_TOPLIST];
+    NSDictionary *world = [m_dataDic objectForKey:WORLD_TOPLIST];
     
     if (world) {
         return world;
@@ -105,7 +105,7 @@ static DataController * _sharedDataController=NULL;
 //        [array initWithObjects:[NSNumber numberWithInteger:1],[NSNumber numberWithInteger:1], nil]
     }
     
-    NSArray * array= [m_dataDic objectForKey:PLAYER_PROPERTY];
+    NSArray *array= [m_dataDic objectForKey:PLAYER_PROPERTY];
     if (!array) {
         [array initWithObjects:[NSNumber numberWithInteger:1],
                                 [NSNumber numberWithInteger:1],
@@ -116,27 +116,27 @@ static DataController * _sharedDataController=NULL;
 
 -(NSInteger) getHighScore
 {
-    NSArray * sco = [self readLoaclScoreTopList];
+    NSArray *sco = [self readLoaclScoreTopList];
     if (!sco) {
         return 0;
     }
-    NSNumber * number = [sco objectAtIndex:0];
+    NSNumber *number = [sco objectAtIndex:0];
     return number.integerValue;
 }
 
 -(void) savePlayerDefauleProperty:(NSInteger) level :(NSInteger)gold :(long int) exp
 {
-    NSArray * array = [array initWithObjects:[NSNumber numberWithInteger:level],
+    NSArray *array = [array initWithObjects:[NSNumber numberWithInteger:level],
                                                 [NSNumber numberWithInteger:gold],
                                                     [NSNumber numberWithLong:exp], nil];
-    [self saveDataIntoFile:[self readLoaclScoreTopList] World:[self readWorldScpreTopList] :array ];
+    [self saveDataIntoFile:[self readLoaclScoreTopList] World:[self readWorldScoreTopList] :array ];
 }
 
 -(void) savePlayerTemplateData:(NSInteger)score
 {
-    NSNumber * number = [NSNumber numberWithInteger:score];
+    NSNumber *number = [NSNumber numberWithInteger:score];
     
-    NSArray * scoreArray = [self readLoaclScoreTopList];
+    NSArray *scoreArray = [self readLoaclScoreTopList];
     NSMutableArray * saveScoreArray = NULL;
     
     if (scoreArray) {
@@ -158,7 +158,7 @@ static DataController * _sharedDataController=NULL;
     }
     
     if (!flag) {
-        [self saveDataIntoFile:saveScoreArray World:[self readWorldScpreTopList] :[self readPlayerDefaultProperty]];
+        [self saveDataIntoFile:saveScoreArray World:[self readWorldScoreTopList] :[self readPlayerDefaultProperty]];
     }
 }
 
@@ -171,13 +171,14 @@ static inline NSInteger Compare(id num1, id num2, void *context)
         return NSOrderedDescending;
     else  if (value1 > value2)
         return NSOrderedAscending;
-    else return NSOrderedSame;
+    else
+        return NSOrderedSame;
 }
 
--(void) saveDataIntoFile:(NSArray*) localArray World:(NSDictionary*) worldLis :(NSArray*)pro
+-(void) saveDataIntoFile:(NSArray*) localArray World:(NSDictionary*) worldLis :(NSArray*) pro
 {
-    NSDictionary * dic = [NSDictionary dictionaryWithObjectsAndKeys:
-                          localArray,LOCAL_TOPLIST,worldLis,WORLD_TOPLIST,pro,PLAYER_PROPERTY, nil];
+    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:
+                          localArray, LOCAL_TOPLIST, worldLis, WORLD_TOPLIST, pro, PLAYER_PROPERTY, nil];
     
     [NSKeyedArchiver archiveRootObject:dic toFile:m_filePath];
 }

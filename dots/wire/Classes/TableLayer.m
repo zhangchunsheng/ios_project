@@ -23,7 +23,7 @@
         m_localLayer = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 255) width:200 height:150];
         m_worldLayer = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 255) width:200 height:150];
         
-        [m_worldLayer setPosition:ccp(220, 0)];
+        [m_worldLayer setPosition:ccp(320, 0)];
         
         [self addChild:m_localLayer];
         [self addChild:m_worldLayer];
@@ -39,14 +39,14 @@
     [super onEnter];
 }
 
--(void) loadLoaclLayer:(NSInteger)score
+-(void) loadLocalLayer:(NSInteger)score
 {
     [m_localLayer removeAllChildren];
     
-    CCLabelTTF *tile = [CCLabelTTF labelWithString:@"you top score" fontName:@"Arial" fontSize:14];
+    CCLabelTTF *title = [CCLabelTTF labelWithString:@"your top score" fontName:@"Arial" fontSize:14];
     
-    [tile setPosition:ccp(m_localLayer.contentSize.width / 2, m_localLayer.contentSize.height + 10)];
-    [m_localLayer addChild:tile];
+    [title setPosition:ccp(m_localLayer.contentSize.width / 2, m_localLayer.contentSize.height + 10)];
+    [m_localLayer addChild:title];
     
     NSArray *scorearray = [[DataController getSharedDataController] readLoaclScoreTopList];
     
@@ -98,13 +98,13 @@
 {
     [m_worldLayer removeAllChildren];
     
-    CCLabelTTF *tile = [CCLabelTTF labelWithString:@"world top score" fontName:@"Arial" fontSize:14];
+    CCLabelTTF *title = [CCLabelTTF labelWithString:@"world top score" fontName:@"Arial" fontSize:14];
     
-    [tile setPosition:ccp(m_localLayer.contentSize.width / 2, m_localLayer.contentSize.height + 10)];
-    [m_worldLayer addChild:tile];
+    [title setPosition:ccp(m_localLayer.contentSize.width / 2, m_localLayer.contentSize.height + 10)];
+    [m_worldLayer addChild:title];
     
     
-    NSDictionary *dic = [[DataController getSharedDataController] readWorldScpreTopList];
+    NSDictionary *dic = [[DataController getSharedDataController] readWorldScoreTopList];
     
     if (!dic) {
         [self setNoDataInlist:m_worldLayer];
@@ -163,7 +163,7 @@
 
 -(void) setNoDataInlist:(CCLayer*) l
 {
-    CCLabelTTF * alert = [CCLabelTTF labelWithString:@"目前没有记录!"fontName:@"Arial" fontSize:18];
+    CCLabelTTF *alert = [CCLabelTTF labelWithString:@"目前没有记录!"fontName:@"Arial" fontSize:18];
     [alert setColor:ccc3(10, 10, 10)];
     [alert setPosition:ccp(80, 75)];
     [l addChild:alert];
@@ -179,7 +179,7 @@
     m_pageCurrent--;
     [self stopAllActions];
     CGPoint pos = self.position;
-    CCMoveTo *moveto = [CCMoveTo actionWithDuration:0.2 position:ccp(pos.x + distance+20, pos.y)];
+    CCMoveTo *moveto = [CCMoveTo actionWithDuration:0.2 position:ccp(pos.x + distance + 20, pos.y)];
     CCMoveTo *moveto2 = [CCMoveTo actionWithDuration:0.2 position:ccp(pos.x + distance, pos.y)];
     [self runAction:[CCSequence actionOne:moveto two:moveto2]];
 }
@@ -191,7 +191,7 @@
         return;
     }
 //    NSLog(@"right move");
-    m_pageCurrent ++;
+    m_pageCurrent++;
     [self stopAllActions];
     CGPoint pos = self.position;
     CCMoveTo *moveto = [CCMoveTo actionWithDuration:0.2 position:ccp(pos.x - distance - 20, pos.y)];

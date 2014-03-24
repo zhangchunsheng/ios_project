@@ -36,7 +36,6 @@
         [m_logoLabel setPosition:ccp(size.width / 2, size.height - 50)];
         [self addChild:m_logoLabel];
         
-//        CCSprite * levelSprite
         CCSprite *thisRound = [CCSprite spriteWithFile:@"Images/thisRoundScore.png"];
         [thisRound setPosition:ccp(60, size.height - 130)];
         [self addChild:thisRound];
@@ -66,10 +65,10 @@
         [timerSprite setPosition:ccp(20, size.height - 200)];
         [self addChild:timerSprite];
         m_expProgress = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"Images/timer.png"]];
-        [m_expProgress setAnchorPoint:ccp(0,0)];
+        [m_expProgress setAnchorPoint:ccp(0, 0)];
         [m_expProgress setType:kCCProgressTimerTypeBar];
         [m_expProgress setMidpoint:ccp(0, 0)];
-        [m_expProgress setBarChangeRate:ccp(1,0)];
+        [m_expProgress setBarChangeRate:ccp(1, 0)];
         [m_expProgress setPosition:ccp(3.5, 4.0)];
         [timerSprite addChild:m_expProgress];
         [m_expProgress setPercentage:100];
@@ -107,16 +106,16 @@
     [self stopAllActions];
     [self setPosition:ccp(s.width, 0 )];
     
-    CCMoveTo  * moveTo = [CCMoveTo actionWithDuration:0.2 position:ccp(0, 0)];
+    CCMoveTo  *moveTo = [CCMoveTo actionWithDuration:0.2 position:ccp(0, 0)];
     
-    CCCallBlock * callB = [CCCallBlock actionWithBlock:^{
+    CCCallBlock *callB = [CCCallBlock actionWithBlock:^{
         [self loadAnimation:score :[[DataController getSharedDataController] readPlayerDefaultProperty]];
     }];
     
     [self runAction:[CCSequence actionOne:moveTo two:callB]];
     
     
-    CCTexture2D * texture = [[CCTextureCache sharedTextureCache] addImage:@"Images/TopPlayingNow.png"];
+    CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"Images/TopPlayingNow.png"];
     //    [m_imageItem setNormalImage:texture];
     CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:texture rect:CGRectMake(0, 0, texture.contentSize.width, texture.contentSize.height)];
     [m_imageItem setNormalSpriteFrame:frame];
@@ -131,7 +130,7 @@
     [self setVisible:true];
     [self loadAnimation:0 :[[DataController getSharedDataController] readPlayerDefaultProperty]];
     
-    CCTexture2D * texture = [[CCTextureCache sharedTextureCache] addImage:@"Images/TopExit.png"];
+    CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"Images/TopExit.png"];
 //    [m_imageItem setNormalImage:texture];
     CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:texture rect:CGRectMake(0, 0, texture.contentSize.width, texture.contentSize.height)];
     [m_imageItem setNormalSpriteFrame:frame];
@@ -142,8 +141,7 @@
 -(void) imageItemPressed
 {
     if (m_imageButtonResponseType) {
-        
-        CCScene * playingScene = [DotPlayingScene scene];
+        CCScene *playingScene = [DotPlayingScene scene];
         
         [[CCDirector sharedDirector] replaceScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:playingScene]];
     } else {
@@ -159,28 +157,28 @@
     NSInteger high = [[DataController getSharedDataController] getHighScore];
     
     if (array) {
-        NSNumber * l = [array objectAtIndex:0];
-        NSNumber * g = [array objectAtIndex:1];
-        NSNumber * e = [array objectAtIndex:2];
+        NSNumber *l = [array objectAtIndex:0];
+        NSNumber *g = [array objectAtIndex:1];
+        NSNumber *e = [array objectAtIndex:2];
         
         level = l.integerValue;
         gold = g.integerValue;
         exp = e.longValue;
     }
     
-    [m_levelLabel setString:[NSString stringWithFormat:@"level:%d",level]];
-    [m_goldlabel setString:[NSString stringWithFormat:@"%d",gold]];
-    [m_thisRound setString:[NSString stringWithFormat:@"%d",score]];
+    [m_levelLabel setString:[NSString stringWithFormat:@"level:%d", level]];
+    [m_goldlabel setString:[NSString stringWithFormat:@"%d", gold]];
+    [m_thisRound setString:[NSString stringWithFormat:@"%d", score]];
     
-    [m_highScore setString:[NSString stringWithFormat:@"%d",high]];
+    [m_highScore setString:[NSString stringWithFormat:@"%d", high]];
     
     if (m_imageButtonResponseType) {
-        [m_thisRound setString:[NSString stringWithFormat:@"%d",score]];
+        [m_thisRound setString:[NSString stringWithFormat:@"%d", score]];
     } else {
         [m_thisRound setString:@"--"];
     }
     
-    [m_tableLayer loadLoaclLayer:1];
+    [m_tableLayer loadLocalLayer:1];
 }
 
 -(BOOL) ccTouchBegan:(UITouch *)touch withEvent:(UIEvent *)event
@@ -250,7 +248,7 @@
     }
 }
 
--(void)onExit
+-(void) onExit
 {
     [super onExit];
     [self setTouchEnabled:false];

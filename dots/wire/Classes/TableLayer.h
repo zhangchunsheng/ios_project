@@ -19,7 +19,7 @@
 }
 
 
--(void) loadLoaclLayer:(NSInteger) score;
+-(void) loadLocalLayer:(NSInteger) score;
 
 -(void) loadWorldLayer;
 
