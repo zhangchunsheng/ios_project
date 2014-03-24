@@ -16,11 +16,11 @@
 @class TopScoreLayer;
 
 @interface DotHudController : CCNode {
-    UpStateLayer * m_upstateLayer;
-    DownStateLayer * m_downStateLayer;
-    PauseLayer * m_pauseLayer;
+    UpStateLayer *m_upstateLayer;
+    DownStateLayer *m_downStateLayer;
+    PauseLayer *m_pauseLayer;
     
-    TopScoreLayer * m_topScoreLayer;
+    TopScoreLayer *m_topScoreLayer;
     
     BOOL m_pause;
 }

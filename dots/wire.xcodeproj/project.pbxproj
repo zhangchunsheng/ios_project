@@ -10,8 +10,9 @@
 		1F0D03BD18DC14B500CDF67C /* NSString+MD5Addition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D03BA18DC14B500CDF67C /* NSString+MD5Addition.m */; };
 		1F0D03BE18DC14B500CDF67C /* UIDevice+IdentifierAddition.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F0D03BC18DC14B500CDF67C /* UIDevice+IdentifierAddition.m */; };
 		1F41528518DE5AE600CD0A5B /* SettingsLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F41528418DE5AE600CD0A5B /* SettingsLayer.m */; };
-		1F41528818DE5B9400CD0A5B /* Aboutus.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F41528718DE5B9400CD0A5B /* Aboutus.m */; };
+		1F41528818DE5B9400CD0A5B /* AboutusLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F41528718DE5B9400CD0A5B /* AboutusLayer.m */; };
 		1F6A057618DC524600A31916 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1F6A057518DC524600A31916 /* Images.xcassets */; };
+		1F9A97DE18DFF689003A50F7 /* NextVersionLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 1F9A97DD18DFF689003A50F7 /* NextVersionLayer.m */; };
 		2D09EF4E175C6846005035C6 /* DataController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D09EF4D175C6846005035C6 /* DataController.m */; };
 		2D160F0C1772A64B00253039 /* MatchHudLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D160F0B1772A64B00253039 /* MatchHudLayer.m */; };
 		2D160F101772B02100253039 /* MatchPlayingHudLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2D160F0F1772B02100253039 /* MatchPlayingHudLayer.m */; };
@@ -183,9 +184,11 @@
 		1F0D03BC18DC14B500CDF67C /* UIDevice+IdentifierAddition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIDevice+IdentifierAddition.m"; sourceTree = "<group>"; };
 		1F41528318DE5AE600CD0A5B /* SettingsLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingsLayer.h; sourceTree = "<group>"; };
 		1F41528418DE5AE600CD0A5B /* SettingsLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingsLayer.m; sourceTree = "<group>"; };
-		1F41528618DE5B9400CD0A5B /* Aboutus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Aboutus.h; sourceTree = "<group>"; };
-		1F41528718DE5B9400CD0A5B /* Aboutus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Aboutus.m; sourceTree = "<group>"; };
+		1F41528618DE5B9400CD0A5B /* AboutusLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AboutusLayer.h; sourceTree = "<group>"; };
+		1F41528718DE5B9400CD0A5B /* AboutusLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AboutusLayer.m; sourceTree = "<group>"; };
 		1F6A057518DC524600A31916 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		1F9A97DC18DFF689003A50F7 /* NextVersionLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NextVersionLayer.h; sourceTree = "<group>"; };
+		1F9A97DD18DFF689003A50F7 /* NextVersionLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NextVersionLayer.m; sourceTree = "<group>"; };
 		2D09EF4C175C6846005035C6 /* DataController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataController.h; sourceTree = "<group>"; };
 		2D09EF4D175C6846005035C6 /* DataController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataController.m; sourceTree = "<group>"; };
 		2D160F0A1772A64B00253039 /* MatchHudLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MatchHudLayer.h; sourceTree = "<group>"; };
@@ -571,10 +574,19 @@
 		1F41527E18DE59F100CD0A5B /* Aboutus */ = {
 			isa = PBXGroup;
 			children = (
-				1F41528618DE5B9400CD0A5B /* Aboutus.h */,
-				1F41528718DE5B9400CD0A5B /* Aboutus.m */,
+				1F41528618DE5B9400CD0A5B /* AboutusLayer.h */,
+				1F41528718DE5B9400CD0A5B /* AboutusLayer.m */,
 			);
 			name = Aboutus;
+			sourceTree = "<group>";
+		};
+		1F9A97DB18DFF666003A50F7 /* NextVersion */ = {
+			isa = PBXGroup;
+			children = (
+				1F9A97DC18DFF689003A50F7 /* NextVersionLayer.h */,
+				1F9A97DD18DFF689003A50F7 /* NextVersionLayer.m */,
+			);
+			name = NextVersion;
 			sourceTree = "<group>";
 		};
 		2D09EF4B175C67EB005035C6 /* Data */ = {
@@ -1139,6 +1151,7 @@
 		2DE9C3C21759DB2A00F1410F /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				1F9A97DB18DFF666003A50F7 /* NextVersion */,
 				1F41527E18DE59F100CD0A5B /* Aboutus */,
 				1F41527D18DE59E600CD0A5B /* Settings */,
 				2DC87BCF17719CAB00F21448 /* MutableLayer */,
@@ -1333,6 +1346,7 @@
 				2D6A30DF1755C68600E2883A /* ZipUtils.m in Sources */,
 				2D6A30E41755C68600E2883A /* CDAudioManager.m in Sources */,
 				2D6A30E81755C68600E2883A /* CDOpenALSupport.m in Sources */,
+				1F9A97DE18DFF689003A50F7 /* NextVersionLayer.m in Sources */,
 				2D6A30EB1755C68600E2883A /* CocosDenshion.m in Sources */,
 				2D6A30EE1755C68600E2883A /* SimpleAudioEngine.m in Sources */,
 				2D6A31041755C68600E2883A /* aabb.c in Sources */,
@@ -1371,7 +1385,7 @@
 				2DC87BC71771875F00F21448 /* ASIFormDataRequest.m in Sources */,
 				2DC87BC81771875F00F21448 /* ASIHTTPRequest.m in Sources */,
 				2DC87BC91771875F00F21448 /* ASIInputStream.m in Sources */,
-				1F41528818DE5B9400CD0A5B /* Aboutus.m in Sources */,
+				1F41528818DE5B9400CD0A5B /* AboutusLayer.m in Sources */,
 				2DC87BCA1771875F00F21448 /* ASINetworkQueue.m in Sources */,
 				2DC87BCB1771875F00F21448 /* Reachability.m in Sources */,
 				2DC87BCE177195F200F21448 /* MutablePlayerScene.m in Sources */,

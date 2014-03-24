@@ -10,11 +10,11 @@
 #import "cocos2d.h"
 
 @interface UpStateLayer : CCLayerColor {
-    CCLabelTTF * m_labelTime;
-    CCLabelTTF * m_labelScore;
+    CCLabelTTF *m_labelTime;
+    CCLabelTTF *m_labelScore;
     
-    CCMenuItemImage * m_scoreItem;
-    CCMenuItemImage * m_timeItem;
+    CCMenuItemImage *m_scoreItem;
+    CCMenuItemImage *m_timeItem;
 }
 
 -(void) resetTimeString:(NSString*) string;

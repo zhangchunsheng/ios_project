@@ -10,9 +10,9 @@
 #import "cocos2d.h"
 
 @interface PauseLayer : CCLayerColor {
-    CCMenuItemImage * m_resume;
-    CCMenuItemImage * m_restart;
-    CCMenuItemImage * m_exittomain;
+    CCMenuItemImage *m_resume;
+    CCMenuItemImage *m_restart;
+    CCMenuItemImage *m_exittomain;
 }
 
 -(void) startAnimationDiaplay;

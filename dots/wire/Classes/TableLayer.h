@@ -10,9 +10,9 @@
 #import "cocos2d.h"
 
 @interface TableLayer : CCNode {
-    CCLayerColor * m_localLayer;
-    CCLayerColor * m_worldLayer;
-//    CCLayerColor * m_sharedLayer;
+    CCLayerColor *m_localLayer;
+    CCLayerColor *m_worldLayer;
+//    CCLayerColor *m_sharedLayer;
     
     NSInteger m_pageMaxCount;
     NSInteger m_pageCurrent;

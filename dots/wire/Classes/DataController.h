@@ -9,8 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface DataController : NSObject {
-    NSString * m_filePath;
-    NSDictionary * m_dataDic;
+    NSString *m_filePath;
+    NSDictionary *m_dataDic;
 }
 
 +(DataController*) getSharedDataController;

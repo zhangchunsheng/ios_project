@@ -1,5 +1,5 @@
 //
-//  SettingsLayer.h
+//  AboutusLayer.h
 //  wire
 //
 //  Created by Peter Zhang on 14-3-23.
@@ -9,8 +9,11 @@
 #import <Foundation/Foundation.h>
 #import "cocos2d.h"
 
-@interface SettingsLayer : CCLayerColor {
-    CCLabelTTF *m_settingsLabel;
+@interface AboutusLayer : CCLayerColor {
+    CCLabelTTF *m_title;
+    CCLabelTTF *m_aboutusLabel;
+    
+    CCMenuItemImage *m_backToMenu;
 }
 
 +(CCScene *) scene;

@@ -19,7 +19,10 @@
     CCMenuItemImage * m_multiplayer;
     CCMenuItemImage * m_highscore;
     CCMenuItemImage * m_settings;
+    CCMenuItemImage * m_nextVersion;
     CCMenuItemImage * m_aboutus;
 }
+
+-(void) backToMenu;
 
 @end

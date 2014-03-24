@@ -14,6 +14,9 @@
 #import "DataController.h"
 #import "TableLayer.h"
 #import "TopScoreLayer.h"
+#import "SettingsLayer.h"
+#import "NextVersionLayer.h"
+#import "AboutusLayer.h"
 #import "config.h"
 #import "NetWorkHandle.h"
 #import "MutablePlayerScene.h"
@@ -72,10 +75,12 @@
     
     m_settings = [CCMenuItemImage itemWithNormalImage:@"Images/settings.png" selectedImage:@"Images/settings.png" target:self selector:@selector(settings:)];
     
+    m_nextVersion = [CCMenuItemImage itemWithNormalImage:@"Images/nextVersion.png" selectedImage:@"Images/nextVersion.png" target:self selector:@selector(nextVersion:)];
+    
     m_aboutus = [CCMenuItemImage itemWithNormalImage:@"Images/about_us.png" selectedImage:@"Images/about_us.png" target:self selector:@selector(aboutus:)];
     
     CCMenu *menu = [CCMenu menuWithItems:m_playnow,
-                    m_highscore, m_settings, m_aboutus, nil];
+                    m_highscore, m_nextVersion, m_aboutus, nil];
     
     [menu alignItemsVerticallyWithPadding:10];
     
@@ -93,36 +98,49 @@
 
 -(void) playingNow:(id)sender
 {
-    CCScene * playingScene = [DotPlayingScene scene];
+    CCScene *playingScene = [DotPlayingScene scene];
     [[CCDirector sharedDirector] replaceScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:playingScene]];
 }
 
 -(void) multiplePlayer:(id) sender
 {
 //    [[NetWorkHandle getSharedNetWork] startMatchOppoent:self];
-    CCScene * multiplePlayerGameScene = [MutablePlayerScene node];
+    CCScene *multiplePlayerGameScene = [MutablePlayerScene node];
     [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:multiplePlayerGameScene]];
 }
 
 -(void) highScore:(id) sender
 {
-    CCScene * highScoreScene = [TopScoreLayer scene];
+    CCScene *highScoreScene = [TopScoreLayer scene];
     [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:highScoreScene]];
 }
 
 -(void) settings:(id) sender
 {
-    
+    CCScene *settingsScene = [SettingsLayer scene];
+    [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:settingsScene]];
+}
+
+-(void) nextVersion:(id) sender
+{
+    CCScene *nextVersionScene = [NextVersionLayer scene];
+    [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:nextVersionScene]];
 }
 
 -(void) aboutus:(id) sender
 {
-    
+    CCScene *aboutusScene = [AboutusLayer scene];
+    [[CCDirector sharedDirector] pushScene:[CCTransitionMoveInR transitionWithDuration:0.2 scene:aboutusScene]];
 }
 
--(void)onEnterTransitionDidFinish{
+-(void)onEnterTransitionDidFinish
+{
     [super onEnterTransitionDidFinish];
     NSLog(@"transitionDifFinish");
+}
+
+-(void) backToMenu {
+    [[CCDirector sharedDirector]popScene];
 }
 
 @end
