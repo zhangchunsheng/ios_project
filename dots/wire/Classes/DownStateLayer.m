@@ -20,20 +20,20 @@
     if (self) {
         [self setAnchorPoint:ccp(0, 0)];
         
-        CCMenuItemImage * skillOne = [CCMenuItemImage itemWithNormalImage:@"Images/skillbutton.png" selectedImage:@"Images/skillButton_unselect.png" target:self selector:@selector(skillOnePressed)];
-        CCMenuItemImage * skillTwo = [CCMenuItemImage itemWithNormalImage:@"Images/skillbutton.png" selectedImage:@"Images/skillButton_unselect.png" target:self selector:@selector(skillTwoPressed)];
-        CCMenuItemImage * skillThree = [CCMenuItemImage itemWithNormalImage:@"Images/skillbutton.png" selectedImage:@"Images/skillButton_unselect.png" target:self selector:@selector(skillThreePressed)];
+        CCMenuItemImage * skill_Time = [CCMenuItemImage itemWithNormalImage:@"Images/skillbutton_Time.png" selectedImage:@"Images/skillButton_Time_unselect.png" target:self selector:@selector(skill_TimePressed)];
+        CCMenuItemImage * skill_DispelOne = [CCMenuItemImage itemWithNormalImage:@"Images/skillbutton_DispelOne.png" selectedImage:@"Images/skillButton_DispelOne_unselect.png" target:self selector:@selector(skill_DispelOnePressed)];
+        CCMenuItemImage * skill_DispelTheSameColor = [CCMenuItemImage itemWithNormalImage:@"Images/skillbutton_DispelTheSameColor.png" selectedImage:@"Images/skillButton_DispelTheSameColor_unselect.png" target:self selector:@selector(skill_DispelTheSameColorPressed)];
         
         
-        [skillOne setAnchorPoint:ccp(0, 0)];
-        [skillTwo setAnchorPoint:ccp(0.5, 0)];
-        [skillThree setAnchorPoint:ccp(1, 0)];
+        [skill_Time setAnchorPoint:ccp(0, 0)];
+        [skill_DispelOne setAnchorPoint:ccp(0.5, 0)];
+        [skill_DispelTheSameColor setAnchorPoint:ccp(1, 0)];
         
-        [skillOne setPosition:ccp(0, 0)];
-        [skillTwo setPosition:ccp(s.width / 2, 0)];
-        [skillThree setPosition:ccp(s.width, 0)];
+        [skill_Time setPosition:ccp(0, 0)];
+        [skill_DispelOne setPosition:ccp(s.width / 2, 0)];
+        [skill_DispelTheSameColor setPosition:ccp(s.width, 0)];
         
-        CCMenu * menu = [CCMenu menuWithItems:skillOne, skillTwo, skillThree, nil];
+        CCMenu * menu = [CCMenu menuWithItems:skill_Time, skill_DispelOne, skill_DispelTheSameColor, nil];
         [menu setPosition:ccp(0, 17)];
         [self addChild:menu];
         
@@ -55,7 +55,7 @@
     [self runAction:[CCSequence actions:moveTo1, moveTo2, nil]];
 }
 
--(void) skillOnePressed
+-(void) skill_TimePressed
 {
     if (self.parent) {
         DotHudController *dhc = (DotHudController*)self.parent;
@@ -63,7 +63,7 @@
     }
 }
 
--(void) skillTwoPressed
+-(void) skill_DispelOnePressed
 {
     if (self.parent) {
         DotHudController *dhc = (DotHudController*)self.parent;
@@ -71,7 +71,7 @@
     }
 }
 
--(void) skillThreePressed
+-(void) skill_DispelTheSameColorPressed
 {
     if (self.parent) {
         DotHudController *dhc = (DotHudController*)self.parent;

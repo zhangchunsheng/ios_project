@@ -16,6 +16,7 @@
     
     NSInteger m_pageMaxCount;
     NSInteger m_pageCurrent;
+    NSInteger layer_height;
 }
 
 

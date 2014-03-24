@@ -63,7 +63,7 @@
         CCSprite *timerSprite = [CCSprite spriteWithFile:@"Images/timerb.png"];
         [timerSprite setAnchorPoint:ccp(0, 0)];
         [timerSprite setPosition:ccp(20, size.height - 200)];
-        [self addChild:timerSprite];
+        //[self addChild:timerSprite];
         m_expProgress = [CCProgressTimer progressWithSprite:[CCSprite spriteWithFile:@"Images/timer.png"]];
         [m_expProgress setAnchorPoint:ccp(0, 0)];
         [m_expProgress setType:kCCProgressTimerTypeBar];
@@ -80,7 +80,7 @@
         [timerSprite addChild:m_levelLabel];
         
         m_tableLayer =  [TableLayer node];
-        [m_tableLayer setPosition:ccp(60, size.height / 6)];
+        [m_tableLayer setPosition:ccp(60, size.height / 5)];
         [self addChild:m_tableLayer];
         
         m_imageItem = [CCMenuItemImage itemWithTarget:self selector:@selector(imageItemPressed)];
@@ -166,16 +166,17 @@
         exp = e.longValue;
     }
     
-    [m_levelLabel setString:[NSString stringWithFormat:@"level:%d", level]];
-    [m_goldlabel setString:[NSString stringWithFormat:@"%d", gold]];
     [m_thisRound setString:[NSString stringWithFormat:@"%d", score]];
-    
     [m_highScore setString:[NSString stringWithFormat:@"%d", high]];
+    //[m_goldlabel setString:[NSString stringWithFormat:@"%d", gold]];
+    [m_goldlabel setString:[NSString stringWithFormat:@"敬请期待"]];
+    [m_levelLabel setString:[NSString stringWithFormat:@"level:%d", level]];
+    
     
     if (m_imageButtonResponseType) {
         [m_thisRound setString:[NSString stringWithFormat:@"%d", score]];
     } else {
-        [m_thisRound setString:@"--"];
+        [m_thisRound setString:@"0"];
     }
     
     [m_tableLayer loadLocalLayer:1];
@@ -213,9 +214,9 @@
         m_canTriggerAction = false;
         
         if (m_touchStartLocation.x < local.x) {
-            [m_tableLayer leftPageMove:200];
+            [m_tableLayer leftPageMove:self.contentSize.width];
         } else {
-            [m_tableLayer rightPageMove:200];
+            [m_tableLayer rightPageMove:self.contentSize.width];
         }
     }
 }
@@ -241,9 +242,9 @@
         m_canTriggerAction = false;
         
         if (m_touchStartLocation.x < local.x) {
-            [m_tableLayer leftPageMove:200];
+            [m_tableLayer leftPageMove:self.contentSize.width];
         } else {
-            [m_tableLayer rightPageMove:200];
+            [m_tableLayer rightPageMove:self.contentSize.width];
         }
     }
 }

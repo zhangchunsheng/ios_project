@@ -20,10 +20,13 @@
 {
     self = [super init];
     if (self) {
-        m_localLayer = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 255) width:200 height:150];
-        m_worldLayer = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 255) width:200 height:150];
+        CGSize size = [CCDirector sharedDirector].winSize;
         
-        [m_worldLayer setPosition:ccp(320, 0)];
+        layer_height = 200;
+        m_localLayer = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 255) width:size.width height:layer_height];
+        m_worldLayer = [CCLayerColor layerWithColor:ccc4(255, 255, 255, 255) width:size.width height:layer_height];
+        
+        [m_worldLayer setPosition:ccp(size.width, 0)];
         
         [self addChild:m_localLayer];
         [self addChild:m_worldLayer];
@@ -39,7 +42,7 @@
     [super onEnter];
 }
 
--(void) loadLocalLayer:(NSInteger)score
+-(void) loadLocalLayer:(NSInteger) score
 {
     [m_localLayer removeAllChildren];
     
@@ -94,7 +97,7 @@
     }
 }
 
--(void) loadWorldTopList:(NSInteger)score
+-(void) loadWorldTopList:(NSInteger) score
 {
     [m_worldLayer removeAllChildren];
     
@@ -163,9 +166,9 @@
 
 -(void) setNoDataInlist:(CCLayer*) l
 {
-    CCLabelTTF *alert = [CCLabelTTF labelWithString:@"目前没有记录!"fontName:@"Arial" fontSize:18];
+    CCLabelTTF *alert = [CCLabelTTF labelWithString:@"目前没有记录!" fontName:@"Arial" fontSize:18];
     [alert setColor:ccc3(10, 10, 10)];
-    [alert setPosition:ccp(80, 75)];
+    [alert setPosition:ccp(100, layer_height / 2)];
     [l addChild:alert];
 }
 
