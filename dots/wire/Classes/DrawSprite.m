@@ -74,7 +74,23 @@
     
     [self addChild:m_drawNode];
     
-    [m_drawNode drawDot:ccp(0, 0) radius:DRAWSPRITE_RADIUES color:m_color];
+    //[m_drawNode drawDot:ccp(0, 0) radius:DRAWSPRITE_RADIUES color:m_color];
+    CGFloat _x = 0;
+    CGFloat _y = 10;
+    //五角星边的长度为20px，x1、h1为五角星的底部点坐标偏差值，x2、h2为五角星上部点偏差值
+    CGFloat x1 = 20 * sin(M_PI / 10);
+    CGFloat h1 = 20 * cos(M_PI / 10);
+    CGFloat x2 = 10;
+    CGFloat h2 = 10 * tan(M_PI / 5);
+
+    CGPoint starPoints[] = {ccp(0,0),
+        ccp(_x + x1, _y + h1),
+        ccp(_x - x2, _y + h2),
+        ccp(_x + x2, _y + h2),
+        ccp(_x - x1, _y + h1),
+        ccp(_x,_y)
+    };
+    [m_drawNode drawPolyWithVerts:starPoints count:6 fillColor:m_color borderWidth:0 borderColor:m_color];
     
     m_selectNode = [CCDrawNode node];
     [m_drawNode addChild:m_selectNode];
