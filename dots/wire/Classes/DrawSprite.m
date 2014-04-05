@@ -77,13 +77,13 @@
     //[m_drawNode drawDot:ccp(0, 0) radius:DRAWSPRITE_RADIUES color:m_color];
     CGFloat _x = 0;
     CGFloat _y = 10;
-    //五角星边的长度为20px，x1、h1为五角星的底部点坐标偏差值，x2、h2为五角星上部点偏差值
+    //五角星边的长度为10px，x1、h1为五角星的底部点坐标偏差值，x2、h2为五角星上部点偏差值
     CGFloat x1 = 20 * sin(M_PI / 10);
-    CGFloat h1 = 20 * cos(M_PI / 10);
+    CGFloat h1 = 10 * cos(M_PI / 10);
     CGFloat x2 = 10;
-    CGFloat h2 = 10 * tan(M_PI / 5);
+    CGFloat h2 = 5 * tan(M_PI / 5);
 
-    CGPoint starPoints[] = {ccp(0,0),
+    CGPoint starPoints[] = {ccp(0,-10),
         ccp(_x + x1, _y + h1),
         ccp(_x - x2, _y + h2),
         ccp(_x + x2, _y + h2),
@@ -97,7 +97,8 @@
     
     ccColor4F col = ccc4f(m_color.r, m_color.g, m_color.b, 255 * 0.75);
     
-    [m_selectNode drawDot:ccp(0, 0) radius:DRAWSPRITE_RADIUES color:col];
+    //[m_selectNode drawDot:ccp(0, 0) radius:DRAWSPRITE_RADIUES color:col];
+    [m_selectNode drawPolyWithVerts:starPoints count:6 fillColor:m_color borderWidth:0 borderColor:col];
     m_selectNode.visible = false;
 //    [m_drawNode clear];
 }
@@ -119,11 +120,28 @@
     
     [m_drawNode setPosition:ccp(wd, size.height)];
     
-    [m_drawNode drawDot:self.position radius:DRAWSPRITE_RADIUES color:m_color];
+    //[m_drawNode drawDot:self.position radius:DRAWSPRITE_RADIUES color:m_color];
+    CGFloat _x = 0;
+    CGFloat _y = 10;
+    //五角星边的长度为10px，x1、h1为五角星的底部点坐标偏差值，x2、h2为五角星上部点偏差值
+    CGFloat x1 = 20 * sin(M_PI / 10);
+    CGFloat h1 = 10 * cos(M_PI / 10);
+    CGFloat x2 = 10;
+    CGFloat h2 = 5 * tan(M_PI / 5);
     
-    ccColor4F col = ccc4f(m_color.r, m_color.g, m_color.b, 255*0.75);
+    CGPoint starPoints[] = {ccp(0,-10),
+        ccp(_x + x1, _y + h1),
+        ccp(_x - x2, _y + h2),
+        ccp(_x + x2, _y + h2),
+        ccp(_x - x1, _y + h1),
+        ccp(_x,_y)
+    };
+    [m_drawNode drawPolyWithVerts:starPoints count:6 fillColor:m_color borderWidth:0 borderColor:m_color];
     
-    [m_selectNode drawDot:ccp(0, 0) radius:DRAWSPRITE_RADIUES color:col];
+    ccColor4F col = ccc4f(m_color.r, m_color.g, m_color.b, 255 * 0.75);
+    
+    //[m_selectNode drawDot:ccp(0, 0) radius:DRAWSPRITE_RADIUES color:col];
+    [m_selectNode drawPolyWithVerts:starPoints count:6 fillColor:m_color borderWidth:0 borderColor:col];
     
     [self respawnDropdown];
 }
@@ -136,18 +154,18 @@
     
     CGPoint pos = [self calcPos:m_x y:m_y];
     
-    CCActionInterval * wait = [CCActionInterval actionWithDuration:m_y*SPAWN_DROPDOWN_TIME/5];
+    CCActionInterval *wait = [CCActionInterval actionWithDuration:m_y * SPAWN_DROPDOWN_TIME / 5];
     
-    CCMoveTo * moveto = [CCMoveTo actionWithDuration:SPAWN_DROPDOWN_TIME/2 position:pos];
+    CCMoveTo *moveto = [CCMoveTo actionWithDuration:SPAWN_DROPDOWN_TIME / 2 position:pos];
     
-    CCJumpTo * jump = [CCJumpTo actionWithDuration:SPAWN_JUMP_TIME position:pos height:30 jumps:1];
+    CCJumpTo *jump = [CCJumpTo actionWithDuration:SPAWN_JUMP_TIME position:pos height:30 jumps:1];
     
-    CCCallBlockO * callB = [CCCallBlockO actionWithBlock:^(id object) {
+    CCCallBlockO *callB = [CCCallBlockO actionWithBlock:^(id object) {
         m_hasSelected = NO;
         self.visible = YES;
     } object:self];
     
-    CCSequence * seq = [CCSequence actions:wait,moveto,jump,callB, nil];
+    CCSequence *seq = [CCSequence actions:wait, moveto, jump, callB, nil];
     
     [m_drawNode runAction:seq];
 }
@@ -162,16 +180,16 @@
     
 //    CCActionInterval * wait = [CCActionInterval actionWithDuration:m_y*SPAWN_DROPDOWN_TIME/5];
     
-    CCMoveTo * moveto = [CCMoveTo actionWithDuration:SPAWN_DROPDOWN_TIME/3 position:pos];
+    CCMoveTo *moveto = [CCMoveTo actionWithDuration:SPAWN_DROPDOWN_TIME / 3 position:pos];
     
-    CCJumpTo * jump = [CCJumpTo actionWithDuration:SPAWN_JUMP_TIME/3*2 position:pos height:20 jumps:1];
+    CCJumpTo *jump = [CCJumpTo actionWithDuration:SPAWN_JUMP_TIME / 3 * 2 position:pos height:20 jumps:1];
     
-    CCCallBlockO * callB = [CCCallBlockO actionWithBlock:^(id object) {
+    CCCallBlockO *callB = [CCCallBlockO actionWithBlock:^(id object) {
         m_hasSelected = NO;
         self.visible = YES;
     } object:self];
     
-    CCSequence * seq = [CCSequence actions:moveto,jump,callB, nil];
+    CCSequence *seq = [CCSequence actions:moveto,jump,callB, nil];
     
     [m_drawNode runAction:seq];
 }
@@ -193,14 +211,14 @@
     
     CCMoveTo *moveto = [CCMoveTo actionWithDuration:RESET_DROPDOWN_TIME position:pos];
     
-    CCJumpTo * jump = [CCJumpTo actionWithDuration:RESET_JUMP_TIME/3
+    CCJumpTo *jump = [CCJumpTo actionWithDuration:RESET_JUMP_TIME / 3
                                           position:pos height:15 jumps:1];
     
-    CCCallBlockO * callB = [CCCallBlockO actionWithBlock:^(id object) {
+    CCCallBlockO *callB = [CCCallBlockO actionWithBlock:^(id object) {
         m_hasSelected = NO;
     } object:self];
     
-    CCSequence * seq = [CCSequence actions:moveto, jump, callB, nil];
+    CCSequence *seq = [CCSequence actions:moveto, jump, callB, nil];
     
     [m_drawNode runAction:seq];
     m_dropCount = 0;
@@ -227,12 +245,12 @@
     [m_selectNode setScale:1.0];
     [m_selectNode setVisible:true];
     
-    CCScaleBy * scaleBy = [CCScaleBy actionWithDuration:0.1 scale:2.0];
-    CCCallBlock * block = [CCCallBlock actionWithBlock:^{
+    CCScaleBy *scaleBy = [CCScaleBy actionWithDuration:0.1 scale:2.0];
+    CCCallBlock *block = [CCCallBlock actionWithBlock:^{
         [m_selectNode setVisible:false];
     }];
     
-    CCSequence * seq = [CCSequence actions:scaleBy, [scaleBy reverse], block, nil];
+    CCSequence *seq = [CCSequence actions:scaleBy, [scaleBy reverse], block, nil];
     [seq setTag:caleActiontag];
     [m_selectNode runAction:seq];
     
@@ -241,22 +259,22 @@
 
 -(void) dispel:(bool)callf
 {
-    CCScaleBy * scaleBy = [CCScaleBy actionWithDuration:0.1 scale:1.5];
-    CCScaleBy * scaleBy2 = [CCScaleBy actionWithDuration:0.2 scale:0];
-    CCSequence * seq = NULL;
+    CCScaleBy *scaleBy = [CCScaleBy actionWithDuration:0.1 scale:1.5];
+    CCScaleBy *scaleBy2 = [CCScaleBy actionWithDuration:0.2 scale:0];
+    CCSequence *seq = NULL;
     
     if (callf) {
-        CCCallBlockO * callfu  = [CCCallBlockO actionWithBlock:^(id object) {
+        CCCallBlockO *callfu  = [CCCallBlockO actionWithBlock:^(id object) {
             
             if (self.parent) {
-                DataHandle * data = (DataHandle*)self.parent;
+                DataHandle *data = (DataHandle*)self.parent;
                 [data dispelEnd];
             }
             
         } object:self];
-        seq = [CCSequence actions:scaleBy,scaleBy2,callfu, nil];
+        seq = [CCSequence actions:scaleBy, scaleBy2, callfu, nil];
     } else {
-        seq = [CCSequence actions:scaleBy,scaleBy2, nil];
+        seq = [CCSequence actions:scaleBy, scaleBy2, nil];
     }
     
     m_dispel = YES;
@@ -279,7 +297,7 @@
     m_hasSelected = YES;
     [m_selectNode stopAllActions];
     [m_selectNode setVisible:true];
-    CCScaleBy * scaleBy = [CCScaleBy actionWithDuration:0.1 scale:1.7];
+    CCScaleBy *scaleBy = [CCScaleBy actionWithDuration:0.1 scale:1.7];
     [m_selectNode runAction:scaleBy];
 }
 
@@ -288,12 +306,12 @@
     m_hasSelected = NO;
     [m_selectNode stopAllActions];
     
-    CCScaleTo * scaleTo = [CCScaleTo actionWithDuration:0.1 scale:1.0];
-    CCCallBlock * block = [CCCallBlock actionWithBlock:^{
+    CCScaleTo *scaleTo = [CCScaleTo actionWithDuration:0.1 scale:1.0];
+    CCCallBlock *block = [CCCallBlock actionWithBlock:^{
         [m_selectNode setVisible:false];
     }];
     
-    CCSequence * seq = [CCSequence actions:scaleTo, block, nil];
+    CCSequence *seq = [CCSequence actions:scaleTo, block, nil];
     [seq setTag:caleActiontag];
     [m_selectNode runAction:seq];
 }

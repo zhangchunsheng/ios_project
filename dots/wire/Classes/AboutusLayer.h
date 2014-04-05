@@ -12,6 +12,7 @@
 @interface AboutusLayer : CCLayerColor {
     CCLabelTTF *m_title;
     CCLabelTTF *m_aboutusLabel;
+    CCLabelTTF *m_titleLabel;
     
     CCMenuItemImage *m_backToMenu;
 }

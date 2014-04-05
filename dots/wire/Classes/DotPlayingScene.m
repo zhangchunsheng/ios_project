@@ -33,6 +33,11 @@
     if (self) {
         [self setAnchorPoint:ccp(0, 0)];
         
+        m_titleLabel = [CCLabelTTF labelWithString:@"If you think the app is just the same, there should only one \ngame for one kind.I like to copy it.Another thing is that \nI think apple map is like Google Map.I don't know why?" fontName:@"Arial" fontSize:12];
+        [m_titleLabel setColor:ccc3(0, 0, 0)];
+        [m_titleLabel setPosition:ccp(160, 410)];
+        //[self addChild:m_titleLabel z:2];
+        
         m_data      = [DataHandle node];
         [self addChild:m_data];
         

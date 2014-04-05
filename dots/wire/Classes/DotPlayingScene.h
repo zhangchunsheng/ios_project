@@ -17,6 +17,7 @@
 @interface DotPlayingScene : CCLayer {
     DotHudController * m_hudController;
     DataHandle       * m_data;
+    CCLabelTTF *m_titleLabel;
     
     CGFloat m_delta;
     

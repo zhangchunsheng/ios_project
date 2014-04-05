@@ -38,8 +38,6 @@ static inline int calcIndex(int x, int y)
             }
         }
         m_stackArray = [[NSMutableArray alloc]init];
-        
-    
     }
     self.visible = false;
     [self loadEffectSounds];
@@ -71,7 +69,7 @@ static inline int calcIndex(int x, int y)
 -(DrawSprite *) getCurrentSelectSprite:(CGPoint) pos
 {
     if (m_drawSpriteArray) {
-        for (DrawSprite * node in m_drawSpriteArray) {
+        for (DrawSprite *node in m_drawSpriteArray) {
             if (node && [node positionInContent:pos]) {
                 return node;
             }
@@ -100,7 +98,7 @@ static inline int calcIndex(int x, int y)
         [m_stackArray removeAllObjects];
     }
     
-    DrawSprite * ds = [self getCurrentSelectSprite:local];
+    DrawSprite *ds = [self getCurrentSelectSprite:local];
     
     if (ds && [ds selectedType]) {
         [m_stackArray addObject:ds];
@@ -115,7 +113,7 @@ static inline int calcIndex(int x, int y)
 -(void) touchMove:(CGPoint)local
 {
     m_movePos = local;
-    DrawSprite * ds = [self getCurrentSelectSprite:local];
+    DrawSprite *ds = [self getCurrentSelectSprite:local];
     
     if (ds && ccc4FEqual(m_currentDrawColor, ds.m_color)) {
         if (ds == [m_stackArray lastObject]) {
@@ -124,7 +122,7 @@ static inline int calcIndex(int x, int y)
         if (m_stackArray.count >=2 &&
             ds == [m_stackArray objectAtIndex:(m_stackArray.count - 2)]) {//退一格
             
-            DrawSprite * tds = [m_stackArray lastObject];
+            DrawSprite *tds = [m_stackArray lastObject];
             [tds unselected];
             if (m_objectHasContain) {
                 m_removeAllSameColor = NO;
@@ -155,7 +153,7 @@ static inline int calcIndex(int x, int y)
         }
         
         m_objectHasContain = NO;
-        DrawSprite * tds = [m_stackArray lastObject];
+        DrawSprite *tds = [m_stackArray lastObject];
         
         NSInteger absValue = abs(ds.m_x - tds.m_x) + abs(ds.m_y - tds.m_y);
         

@@ -44,6 +44,11 @@
         CCTexture2D *texture = [[CCTextureCache sharedTextureCache] addImage:@"Images/TopExit.png"];
         CCSpriteFrame *frame = [CCSpriteFrame frameWithTexture:texture rect:CGRectMake(0, 0, texture.contentSize.width, texture.contentSize.height)];
         [m_backToMenu setNormalSpriteFrame:frame];
+        
+        m_titleLabel = [CCLabelTTF labelWithString:@"If you think the app is just the same, there should only one \ngame for one kind.I like to learn that.Another thing is that \nI think apple map is like Google Map.I don't know why?" fontName:@"Arial" fontSize:12];
+        [m_titleLabel setColor:ccc3(0, 0, 0)];
+        [m_titleLabel setPosition:ccp(160, 100)];
+        [self addChild:m_titleLabel z:2];
     }
     
     return self;
